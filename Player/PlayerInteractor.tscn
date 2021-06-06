@@ -1,0 +1,13 @@
+[gd_scene load_steps=2 format=2]
+
+[sub_resource type="RectangleShape2D" id=1]
+extents = Vector2( 7.27792, 4.01803 )
+
+[node name="PlayerInteractor" type="Area2D"]
+collision_layer = 32
+collision_mask = 0
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 0.0216432, 0.0781155 )
+rotation = 1.5708
+shape = SubResource( 1 )

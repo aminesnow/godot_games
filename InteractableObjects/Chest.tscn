@@ -1,0 +1,45 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://InteractableObjects/Interactable.tscn" type="PackedScene" id=1]
+[ext_resource path="res://InteractableObjects/Chest.gd" type="Script" id=2]
+[ext_resource path="res://InteractableObjects/chest2.png" type="Texture" id=3]
+
+[sub_resource type="AtlasTexture" id=1]
+atlas = ExtResource( 3 )
+region = Rect2( 0, 0, 32, 32 )
+
+[sub_resource type="AtlasTexture" id=2]
+atlas = ExtResource( 3 )
+region = Rect2( 32, 0, 32, 32 )
+
+[sub_resource type="SpriteFrames" id=3]
+animations = [ {
+"frames": [ SubResource( 1 ), SubResource( 2 ) ],
+"loop": false,
+"name": "open",
+"speed": 5.0
+} ]
+
+[sub_resource type="RectangleShape2D" id=4]
+extents = Vector2( 15.6816, 12.5893 )
+
+[node name="Chest" type="StaticBody2D"]
+script = ExtResource( 2 )
+
+[node name="Interactable" parent="." instance=ExtResource( 1 )]
+iteractableObjPath = NodePath("..")
+id = "chest1"
+
+[node name="CollisionShape2D" parent="Interactable" index="0"]
+position = Vector2( 15.8336, 16.1872 )
+
+[node name="AnimatedSprite" type="AnimatedSprite" parent="."]
+frames = SubResource( 3 )
+animation = "open"
+centered = false
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2( 15.8336, 19.5459 )
+shape = SubResource( 4 )
+
+[editable path="Interactable"]

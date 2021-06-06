@@ -1,0 +1,16 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Hud.tscn" type="PackedScene" id=1]
+[ext_resource path="res://CustomCamera.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Levels/AbstractLevel.gd" type="Script" id=3]
+
+[node name="AbstractLevel" type="Node2D" groups=[
+"Levels",
+]]
+script = ExtResource( 3 )
+
+[node name="CustomCamera" parent="." instance=ExtResource( 2 )]
+
+[node name="YSort" type="YSort" parent="."]
+
+[node name="Hud" parent="." instance=ExtResource( 1 )]

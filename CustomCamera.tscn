@@ -5,11 +5,11 @@
 [node name="CustomCamera" type="Camera2D"]
 position = Vector2( 160, 90 )
 current = true
-zoom = Vector2( 0.2, 0.2 )
+zoom = Vector2( 0.8, 0.8 )
 limit_left = 0
 limit_top = 0
-limit_right = 560
-limit_bottom = 360
+limit_right = 280
+limit_bottom = 180
 smoothing_enabled = true
 script = ExtResource( 1 )
 

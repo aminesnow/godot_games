@@ -1,0 +1,20 @@
+{
+	"Sword": {
+		"Category": "Weapon",
+		"StackSize": 1,
+		"Description": "Sharp and cuts like a modafaka"
+	},
+	
+	"Mace": {
+		"Category": "Weapon",
+		"StackSize": 1,
+		"Description": "Heavy and solid, like my d***"
+	},
+	"Health Potion": {
+		"Category": "Resource",
+		"StackSize": 99,
+		"AddHealth": 3,
+		"Description": "Regens health"
+	}
+	
+}

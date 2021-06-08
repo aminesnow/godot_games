@@ -1,3 +1,4 @@
+class_name Player
 extends KinematicBody2D
 
 
@@ -11,11 +12,9 @@ enum {
 	ATTACK
 }
 
-signal PlayerDead
-signal PlayerReady
+
 
 onready var stats = PlayerStats
-onready var sceneChanger = SceneChanger
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
@@ -26,25 +25,17 @@ onready var PlayerHurtSFX = preload("res://Effects/PlayerHurtSFX.tscn")
 
 var velocity = Vector2.ZERO
 var state = IDLE
-var init_pose = null
 
 func _ready():
-	var levelGates = get_tree().get_nodes_in_group("LevelGates")
-	for obj in levelGates:
-		var gate: LevelGate = obj
-		if gate.gateID == sceneChanger.gateID:
-			yield(obj, "ready")
-			global_position = gate.playerPosition.global_position
-			init_pose = gate.playerPose
-			break
 	animationTree.active = true
 	swordHB.knockBackVector = Vector2.LEFT
-	stats.connect("Dead", self, "player_dead")
+	GameEvents.connect("OutOfHealth", self, "player_dead")
 
 
-func player_dead():
-	emit_signal("PlayerDead")
-	queue_free()
+func player_dead(obj):
+	if obj == self:
+		GameEvents.emit_signal("PlayerDead")
+		queue_free()
 
 func _physics_process(delta):
 	match state:
@@ -57,10 +48,8 @@ func _physics_process(delta):
 
 
 func idle():
-	init_player_pose()
 	var input_vector = get_input_vector()
 	if input_vector != Vector2.ZERO:
-		init_pose = null
 		state = MOVE
 
 func attack():
@@ -89,24 +78,15 @@ func move(delta):
 	if Input.is_action_just_pressed("attack"):
 		state = ATTACK
 
-func init_player_pose():
-	if init_pose != null:
-		match init_pose:
-			Commons.PlayerPose.DOWN:
-				animationPlayer.play("IdleDown")
+func init_player_pose(init_pose):
+	var poseVector = Commons.PoseVecotrs[init_pose]
+	animationTree.set("parameters/Idle/blend_position", poseVector)
+	animationTree.set("parameters/Run/blend_position", poseVector)
+	animationTree.set("parameters/Attack/blend_position", poseVector)
 
-			Commons.PlayerPose.UP:
-				animationPlayer.play("IdleUp")
-
-			Commons.PlayerPose.LEFT:
-				animationPlayer.play("IdleLeft")
-
-			Commons.PlayerPose.RIGHT:
-				animationPlayer.play("IdleRight")
-		emit_signal("PlayerReady")
 
 func _on_HurtBox_area_entered(area):
-	stats.take_damage(area.damage)
+	stats.take_damage(area.damage, self)
 	get_tree().current_scene.add_child(PlayerHurtSFX.instance())
 	hurtBox.activate_invicibility()
 

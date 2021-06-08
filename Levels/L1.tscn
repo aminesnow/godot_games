@@ -1,9 +1,8 @@
-[gd_scene load_steps=12 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=1]
 [ext_resource path="res://World/SandTileMap.tscn" type="PackedScene" id=2]
-[ext_resource path="res://Hud.tscn" type="PackedScene" id=3]
-[ext_resource path="res://CustomCamera.tscn" type="PackedScene" id=4]
+[ext_resource path="res://CustomCamera.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Levels/LevelGate.tscn" type="PackedScene" id=5]
 [ext_resource path="res://InteractableObjects/Chest.tscn" type="PackedScene" id=6]
 [ext_resource path="res://World/FlatGrassTileMap.tscn" type="PackedScene" id=7]
@@ -24,13 +23,15 @@ region_rect = Rect2( 0, 0, 560, 384 )
 [node name="SandTileMap" parent="." instance=ExtResource( 2 )]
 tile_data = PoolIntArray( 589830, 0, 0, 589831, 0, 2, 655366, 0, 65536, 655367, 0, 65538, 720902, 0, 65536, 720903, 0, 65538, 786438, 0, 65536, 786439, 0, 65538, 851974, 0, 65536, 851975, 0, 65538, 917510, 0, 65536, 917511, 0, 65538, 983046, 0, 65536, 983047, 0, 131077, 983048, 0, 1, 983049, 0, 1, 983050, 0, 1, 983051, 0, 1, 983052, 0, 1, 983053, 0, 1, 983054, 0, 1, 983055, 0, 1, 983056, 0, 1, 983057, 0, 1, 983058, 0, 1, 983059, 0, 2, 1048582, 0, 131072, 1048583, 0, 131073, 1048584, 0, 131073, 1048585, 0, 131073, 1048586, 0, 131073, 1048587, 0, 131073, 1048588, 0, 131073, 1048589, 0, 131073, 1048590, 0, 131073, 1048591, 0, 131073, 1048592, 0, 131073, 1048593, 0, 131073, 1048594, 0, 65542, 1048595, 0, 65538, 1114130, 0, 65536, 1114131, 0, 65538, 1179666, 0, 65536, 1179667, 0, 65538, 1245202, 0, 65536, 1245203, 0, 131077, 1245204, 0, 1, 1245205, 0, 1, 1245206, 0, 1, 1245207, 0, 1, 1245208, 0, 1, 1245209, 0, 1, 1245210, 0, 1, 1245211, 0, 1, 1245212, 0, 1, 1245213, 0, 1, 1245214, 0, 1, 1245215, 0, 1, 1245216, 0, 1, 1245217, 0, 1, 1245218, 0, 1, 1245219, 0, 2, 1310738, 0, 65536, 1310739, 0, 65541, 1310740, 0, 131073, 1310741, 0, 131073, 1310742, 0, 131073, 1310743, 0, 131073, 1310744, 0, 131073, 1310745, 0, 131073, 1310746, 0, 131073, 1310747, 0, 131073, 1310748, 0, 131073, 1310749, 0, 131073, 1310750, 0, 131073, 1310751, 0, 131073, 1310752, 0, 131073, 1310753, 0, 131073, 1310754, 0, 131073, 1310755, 0, 131074, 1376274, 0, 65536, 1376275, 0, 65538, 1441810, 0, 65536, 1441811, 0, 65538, 1507346, 0, 65536, 1507347, 0, 65538, 1572882, 0, 131072, 1572883, 0, 131074 )
 
-[node name="CustomCamera" parent="." instance=ExtResource( 4 )]
+[node name="Camera2D" parent="." instance=ExtResource( 3 )]
 position = Vector2( 259.289, 321.004 )
+zoom = Vector2( 0.4, 0.4 )
+editor_draw_limits = true
 
-[node name="TopLeft" parent="CustomCamera/Limits" index="0"]
+[node name="TopLeft" parent="Camera2D/Limits" index="0"]
 position = Vector2( 0, 0 )
 
-[node name="BottomRight" parent="CustomCamera/Limits" index="1"]
+[node name="BottomRight" parent="Camera2D/Limits" index="1"]
 position = Vector2( 560, 384 )
 
 [node name="YSort" type="YSort" parent="."]
@@ -52,7 +53,7 @@ position = Vector2( 82.9199, 65.4662 )
 position = Vector2( 259.289, 321.004 )
 
 [node name="RemoteTransform2D" type="RemoteTransform2D" parent="YSort/Player"]
-remote_path = NodePath("../../../CustomCamera")
+remote_path = NodePath("../../../Camera2D")
 
 [node name="L2L1" parent="." instance=ExtResource( 5 )]
 position = Vector2( 318.403, 386.167 )
@@ -63,8 +64,6 @@ gateID = "L2L1"
 
 [node name="PlayerPosition" parent="L2L1" index="1"]
 position = Vector2( 14, 30.3108 )
-
-[node name="Hud" parent="." instance=ExtResource( 3 )]
 
 [node name="L1L2" parent="." instance=ExtResource( 5 )]
 position = Vector2( 563.316, 321.447 )
@@ -79,6 +78,6 @@ position = Vector2( -1.02982, 3.81065 )
 [node name="PlayerPosition" parent="L1L2" index="1"]
 position = Vector2( -0.24144, 23.891 )
 
-[editable path="CustomCamera"]
+[editable path="Camera2D"]
 [editable path="L2L1"]
 [editable path="L1L2"]

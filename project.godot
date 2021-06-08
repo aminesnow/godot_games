@@ -19,41 +19,65 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://AbstractStats.gd"
 }, {
+"base": "KinematicBody2D",
+"class": "Bat",
+"language": "GDScript",
+"path": "res://Enemies/Bat.gd"
+}, {
 "base": "Area2D",
 "class": "Interactable",
 "language": "GDScript",
 "path": "res://InteractableObjects/Interactable.gd"
 }, {
+"base": "Panel",
+"class": "InventorySlot",
+"language": "GDScript",
+"path": "res://UI/Slot.gd"
+}, {
+"base": "Node2D",
+"class": "Item",
+"language": "GDScript",
+"path": "res://Items/Item.gd"
+}, {
 "base": "Area2D",
 "class": "LevelGate",
 "language": "GDScript",
 "path": "res://Levels/LevelGate.gd"
+}, {
+"base": "KinematicBody2D",
+"class": "Player",
+"language": "GDScript",
+"path": "res://Player/Player.gd"
 } ]
 _global_script_class_icons={
 "AbstractLevel": "",
 "AbstractStats": "",
+"Bat": "",
 "Interactable": "",
-"LevelGate": ""
+"InventorySlot": "",
+"Item": "",
+"LevelGate": "",
+"Player": ""
 }
 
 [application]
 
 config/name="mvp"
-run/main_scene="res://Levels/L1.tscn"
+run/main_scene="res://Root.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
 PlayerStats="*res://Player/PlayerStats.gd"
-SceneChanger="*res://SceneChanger.tscn"
 Commons="*res://Commons.gd"
 InteractableGlobals="*res://InteractableObjects/InteractableGlobals.gd"
+GameEvents="*res://GameEvents.gd"
+JsonData="*res://JsonData.gd"
 
 [display]
 
-window/size/width=1920
-window/size/height=1080
-window/size/fullscreen=true
+window/size/test_width=1024
+window/size/test_height=600
 window/stretch/mode="2d"
 window/stretch/aspect="keep"
 
@@ -117,6 +141,11 @@ interact={
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":69,"unicode":0,"echo":false,"script":null)
  ]
 }
+inventory={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":73,"unicode":0,"echo":false,"script":null)
+ ]
+}
 
 [layer_names]
 
@@ -126,6 +155,7 @@ interact={
 2d_physics/layer_4="EnemyHurtbox"
 2d_physics/layer_5="Enemy"
 2d_physics/layer_6="PlayerInteractor"
+2d_physics/layer_7="Cliffs"
 
 [physics]
 

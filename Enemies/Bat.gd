@@ -1,3 +1,4 @@
+class_name Bat
 extends KinematicBody2D
 
 enum {
@@ -27,6 +28,8 @@ onready var wanderCtrl = $WanderCtrl
 func _ready():
 	var numFrames = sprite.frames.get_frame_count("BatAnimationFly")
 	sprite.frame = randi() % numFrames
+	GameEvents.connect("BatWanderTimeOut", self,"_on_WanderCtrl_TimeOut")
+	GameEvents.connect("OutOfHealth", self, "_on_OutOfHealth")
 	
 func _physics_process(delta):
 	knockback = knockback.move_toward(Vector2.ZERO, FRICTION * delta)
@@ -61,22 +64,26 @@ func accelerate_to(target, delta):
 	velocity = velocity.move_toward(direction * MAX_SPEED, delta * ACCELERATION)
 	sprite.flip_h = (velocity.x < 0)
 
+func _on_WanderCtrl_TimeOut(wc):
+	if wanderCtrl.get_path() == wc.get_path():
+		state = pick_random_state([IDLE, WANDER])
+		wanderCtrl.start_wander_timer(TIMER_DURATION)
+
 func _on_HurtBox_area_entered(area):
 	knockback = area.knockBackVector * BAT_KB
-	stats.take_damage(area.damage)
+	stats.take_damage(area.damage, self)
 
 
-func _on_Stats_Dead():
-	var de = DeathEffect.instance()
-	get_parent().add_child(de)
-	de.position = self.position
-	queue_free()
+func _on_OutOfHealth(obj):
+	if obj == self:
+		var de = DeathEffect.instance()
+		get_parent().add_child(de)
+		de.position = self.position
+		queue_free()
 
 func pick_random_state(state_list: Array):
 	state_list.shuffle()
 	return state_list.pop_front()
 
-func _on_WanderCtrl_TimeOut():
-	state = pick_random_state([IDLE, WANDER])
-	wanderCtrl.start_wander_timer(TIMER_DURATION)
+
 	

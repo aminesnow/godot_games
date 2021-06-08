@@ -22,5 +22,5 @@ func _ready():
 	self.max_hearts = PlayerStats.max_health
 	heartsFull.rect_size.x = self.hearts * HEART_SIZE
 	heartsEmpty.rect_size.x = self.max_hearts * HEART_SIZE
-	PlayerStats.connect("HealthChanged", self, "set_hearts")
-	PlayerStats.connect("MaxHealthChanged", self, "set_max_hearts")
+	GameEvents.connect("PlayerHealthChanged", self, "set_hearts")
+	GameEvents.connect("PlayerMaxHealthChanged", self, "set_max_hearts")

@@ -1,0 +1,31 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Items/Item.gd" type="Script" id=2]
+
+[node name="Item" type="Node2D"]
+z_index = 1
+script = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_left = 16.0
+margin_top = 16.0
+margin_right = 56.0
+margin_bottom = 56.0
+mouse_filter = 2
+expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Label" type="Label" parent="."]
+margin_left = 8.0
+margin_top = 48.0
+margin_right = 24.0
+margin_bottom = 62.0
+rect_scale = Vector2( 0.8, 0.8 )
+custom_colors/font_color_shadow = Color( 0, 0, 0, 1 )
+text = "99"
+percent_visible = -0.5
+__meta__ = {
+"_edit_use_anchors_": false
+}

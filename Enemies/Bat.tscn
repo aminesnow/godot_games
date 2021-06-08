@@ -51,7 +51,7 @@ radius = 7.64605
 height = 3.81752
 
 [node name="Bat" type="KinematicBody2D"]
-collision_layer = 16
+collision_layer = 80
 collision_mask = 17
 script = ExtResource( 4 )
 MAX_SPEED = 50
@@ -62,7 +62,6 @@ max_health = 3
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "BatAnimationFly"
-frame = 2
 playing = true
 offset = Vector2( 0, -12 )
 
@@ -95,9 +94,7 @@ shape = SubResource( 10 )
 
 [node name="WanderCtrl" parent="." instance=ExtResource( 8 )]
 
-[connection signal="Dead" from="Stats" to="." method="_on_Stats_Dead"]
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
-[connection signal="TimeOut" from="WanderCtrl" to="." method="_on_WanderCtrl_TimeOut"]
 
 [editable path="PlayerDetectionZone"]
 [editable path="HitBox"]

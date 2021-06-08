@@ -1030,5 +1030,7 @@ points = PoolVector2Array( 32, 15.0735, 27.3996, 15.0735, 27.3996, 0.189178, 32,
 tile_set = SubResource( 109 )
 cell_size = Vector2( 32, 32 )
 cell_y_sort = true
+collision_layer = 64
+collision_mask = 64
 format = 1
 script = ExtResource( 3 )

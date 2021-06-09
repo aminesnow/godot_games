@@ -1,19 +1,30 @@
 extends Node2D
 
-onready var animatedSprite = $AnimatedSprite
+onready var animatedSprite: AnimatedSprite = $AnimatedSprite
 onready var interactable = $Interactable
+var open = false
 
 func _ready():
-	if chest_is_open():
+	if is_open():
 		animatedSprite.frame = 1
-		
+
 
 func interact():
-	if !chest_is_open():
+	if !is_open():
+		open = true
 		print("chest open")
 		animatedSprite.play("open")
-		InteractableGlobals.set_state_attr(interactable.id, "open", true)
+		GameEvents.emit_signal("OpenContainer")
+		GameEvents.connect("CloseInventory", self, "interact")
+		#InteractableGlobals.set_state_attr(interactable.id, "open", true)
+	else:
+		open = false
+		stop_interact()
 
-func chest_is_open() -> bool:
-	return InteractableGlobals.get_state_attr(interactable.id, "open") != null\
-		and InteractableGlobals.get_state_attr(interactable.id, "open")
+func stop_interact():
+	GameEvents.emit_signal("CloseContainer")
+	GameEvents.disconnect("CloseInventory", self, "interact")
+	animatedSprite.play("open", true)
+
+func is_open() -> bool:
+	return open

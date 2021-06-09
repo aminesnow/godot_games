@@ -10,6 +10,10 @@ signal PlayerMaxHealthChanged(health)
 signal TurnOffCliffColis(body)
 signal TurnOnClifColis(body)
 signal SlotClicked(slot)
+signal OpenInventory
+signal CloseInventory
+signal OpenContainer(containerItems)
+signal CloseContainer
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

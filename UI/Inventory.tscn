@@ -43,6 +43,7 @@ margin_bottom = 70.0
 rect_min_size = Vector2( 70, 70 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
+idx = null
 
 [node name="Slot2" type="Panel" parent="Inventory/GridContainer"]
 margin_left = 73.0
@@ -51,6 +52,7 @@ margin_bottom = 70.0
 rect_min_size = Vector2( 70, 70 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
+idx = 1
 
 [node name="Slot3" type="Panel" parent="Inventory/GridContainer"]
 margin_left = 146.0
@@ -59,6 +61,7 @@ margin_bottom = 70.0
 rect_min_size = Vector2( 70, 70 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
+idx = 2
 
 [node name="Slot4" type="Panel" parent="Inventory/GridContainer"]
 margin_top = 73.0
@@ -67,6 +70,7 @@ margin_bottom = 143.0
 rect_min_size = Vector2( 70, 70 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
+idx = 3
 
 [node name="Slot5" type="Panel" parent="Inventory/GridContainer"]
 margin_left = 73.0
@@ -76,6 +80,7 @@ margin_bottom = 143.0
 rect_min_size = Vector2( 70, 70 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
+idx = 4
 
 [node name="Slot6" type="Panel" parent="Inventory/GridContainer"]
 margin_left = 146.0
@@ -85,6 +90,7 @@ margin_bottom = 143.0
 rect_min_size = Vector2( 70, 70 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
+idx = 5
 
 [node name="Slot7" type="Panel" parent="Inventory/GridContainer"]
 margin_top = 146.0
@@ -93,6 +99,7 @@ margin_bottom = 216.0
 rect_min_size = Vector2( 70, 70 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
+idx = 6
 
 [node name="Slot8" type="Panel" parent="Inventory/GridContainer"]
 margin_left = 73.0
@@ -102,6 +109,7 @@ margin_bottom = 216.0
 rect_min_size = Vector2( 70, 70 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
+idx = 7
 
 [node name="Slot9" type="Panel" parent="Inventory/GridContainer"]
 margin_left = 146.0
@@ -111,3 +119,4 @@ margin_bottom = 216.0
 rect_min_size = Vector2( 70, 70 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
+idx = 8

@@ -23,3 +23,5 @@ func _on_Interactable_area_entered(area):
 
 func _on_Interactable_area_exited(area):
 	can_interact = false
+	if iteractableObj and iteractableObj.has_method("stop_interact"):
+			iteractableObj.stop_interact()

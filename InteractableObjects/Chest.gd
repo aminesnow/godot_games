@@ -1,10 +1,22 @@
 extends Node2D
 
+export(PackedScene) var slot0
+export(int) var stack0 = 1
+
+export(PackedScene) var slot1
+export(int) var stack1 = 1
+
+export(PackedScene) var slot2
+export(int) var stack2 = 1
+
 onready var animatedSprite: AnimatedSprite = $AnimatedSprite
 onready var interactable = $Interactable
+
+var id: String
 var open = false
 
 func _ready():
+	id = $Interactable.id
 	if is_open():
 		animatedSprite.frame = 1
 
@@ -12,19 +24,38 @@ func _ready():
 func interact():
 	if !is_open():
 		open = true
-		print("chest open")
 		animatedSprite.play("open")
-		GameEvents.emit_signal("OpenContainer")
+		var items = {}
+
+		if ContainersInventory.containers_slot.has(id):
+			items = ContainersInventory.containers_slot[id]
+		else:
+			var slots = [
+				{"idx": 0, "slot": slot0, "quant": stack0}, 
+				{"idx": 1, "slot": slot1, "quant": stack1}, 
+				{"idx": 2, "slot": slot2, "quant": stack2}
+			]
+
+			for slot in slots:
+				if slot["slot"] != null:
+					var item = slot["slot"].instance()
+					item.ready()
+					item.add_quantity(slot["quant"])
+					items[slot["idx"]] = item
+
+		GameEvents.emit_signal("OpenContainer", id, items)
 		GameEvents.connect("CloseInventory", self, "interact")
 		#InteractableGlobals.set_state_attr(interactable.id, "open", true)
 	else:
-		open = false
 		stop_interact()
+
 
 func stop_interact():
 	GameEvents.emit_signal("CloseContainer")
 	GameEvents.disconnect("CloseInventory", self, "interact")
-	animatedSprite.play("open", true)
+	if open:
+		animatedSprite.play("open", true)
+		open = false
 
 func is_open() -> bool:
 	return open

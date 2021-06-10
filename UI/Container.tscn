@@ -2,7 +2,7 @@
 
 [ext_resource path="res://UI/container.png" type="Texture" id=1]
 [ext_resource path="res://UI/slot.png" type="Texture" id=2]
-[ext_resource path="res://UI/Slot.gd" type="Script" id=3]
+[ext_resource path="res://UI/ContainerSlot.gd" type="Script" id=3]
 [ext_resource path="res://UI/ContainerCanvas.gd" type="Script" id=4]
 [ext_resource path="res://UI/Inventory.gd" type="Script" id=5]
 
@@ -50,6 +50,7 @@ margin_bottom = 70.0
 rect_min_size = Vector2( 70, 70 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
+idx = 1
 
 [node name="Slot3" type="Panel" parent="Inventory/GridContainer"]
 margin_left = 146.0
@@ -58,3 +59,4 @@ margin_bottom = 70.0
 rect_min_size = Vector2( 70, 70 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
+idx = 2

@@ -10,11 +10,8 @@ var iteractableObj: Node2D
 func _process(delta):
 	if can_interact and Input.is_action_just_pressed("interact"):
 		iteractableObj = get_node(iteractableObjPath)
-		print("interacting")
 		if iteractableObj.has_method("interact"):
 			iteractableObj.interact()
-
-
 
 
 func _on_Interactable_area_entered(area):

@@ -1,25 +1,12 @@
-class_name InventorySlot
+class_name Slot
 extends Panel
 
 
-var sword = preload("res://Items/Sword.tscn")
-var mace = preload("res://Items/Mace.tscn")
-var potion = preload("res://Items/Potion.tscn")
 var item: Item = null
 export(int) var idx
 
 func _ready():
 	randomize()
-	if randi() % 2 == 0:
-		if randi() % 3 == 0:
-			item = sword.instance()
-		else:
-			item = potion.instance()
-	elif randi() % 3 == 0:
-		item = mace.instance()
-	
-	if item:
-		add_child(item)
 	self.connect("gui_input", self, "_on_guiInput")
 	update_inventory()
 
@@ -43,4 +30,4 @@ func _on_guiInput(event: InputEvent):
 			GameEvents.emit_signal("SlotClicked", event, self)
 
 func update_inventory():
-	PlayerInventory.slots[idx] = item
+	pass

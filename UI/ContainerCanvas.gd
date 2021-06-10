@@ -8,8 +8,19 @@ func _ready():
 	GameEvents.connect("CloseContainer", self, "close")
 
 
-func open():
+func open(id: String, containerItems: Dictionary):
+	print(containerItems)
+	for key in containerItems:
+		var slot: Slot = $Inventory/GridContainer.get_child(key)
+		slot.item = containerItems[key]
+		slot.container_id = id
+		slot.update_inventory()
+		slot.add_child(slot.item)
 	$Inventory.visible = true
 
 func close():
 	$Inventory.visible = false
+	var slots = $Inventory/GridContainer.get_children()
+	for slot in slots:
+		if slot.item != null:
+			slot.remove_child(slot.item)

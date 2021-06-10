@@ -24,15 +24,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Enemies/Bat.gd"
 }, {
+"base": "Slot",
+"class": "ContainerSlot",
+"language": "GDScript",
+"path": "res://UI/ContainerSlot.gd"
+}, {
 "base": "Area2D",
 "class": "Interactable",
 "language": "GDScript",
 "path": "res://InteractableObjects/Interactable.gd"
-}, {
-"base": "Panel",
-"class": "InventorySlot",
-"language": "GDScript",
-"path": "res://UI/Slot.gd"
 }, {
 "base": "Node2D",
 "class": "Item",
@@ -48,16 +48,22 @@ _global_script_classes=[ {
 "class": "Player",
 "language": "GDScript",
 "path": "res://Player/Player.gd"
+}, {
+"base": "Panel",
+"class": "Slot",
+"language": "GDScript",
+"path": "res://UI/Slot.gd"
 } ]
 _global_script_class_icons={
 "AbstractLevel": "",
 "AbstractStats": "",
 "Bat": "",
+"ContainerSlot": "",
 "Interactable": "",
-"InventorySlot": "",
 "Item": "",
 "LevelGate": "",
-"Player": ""
+"Player": "",
+"Slot": ""
 }
 
 [application]
@@ -74,6 +80,7 @@ GameEvents="*res://GameEvents.gd"
 JsonData="*res://JsonData.gd"
 PlayerStats="*res://Player/PlayerStats.gd"
 PlayerInventory="*res://Player/PlayerInventory.gd"
+ContainersInventory="*res://InteractableObjects/ContainersInventory.gd"
 
 [display]
 

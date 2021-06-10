@@ -25,12 +25,16 @@ script = ExtResource( 7 )
 [node name="Inventory" parent="UI/Inventory" index="0"]
 position = Vector2( 312, 48 )
 
+[node name="Node2D" parent="UI/Inventory/Inventory/WeaponSlot" index="0"]
+position = Vector2( 247.493, 220.154 )
+
+[node name="ContainerCanvas" parent="UI" instance=ExtResource( 6 )]
+
+[node name="Inventory" parent="UI/ContainerCanvas" index="0"]
+position = Vector2( 312, 288.325 )
+
 [node name="Hud" parent="UI" instance=ExtResource( 3 )]
 
-[node name="Container" parent="UI" instance=ExtResource( 6 )]
-
-[node name="Inventory" parent="UI/Container" index="0"]
-position = Vector2( 312, 289.004 )
-
 [editable path="UI/Inventory"]
-[editable path="UI/Container"]
+[editable path="UI/Inventory/Inventory/WeaponSlot"]
+[editable path="UI/ContainerCanvas"]

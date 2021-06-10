@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://UI/inventory.png" type="Texture" id=1]
 [ext_resource path="res://UI/slot.png" type="Texture" id=2]
 [ext_resource path="res://UI/Slot.gd" type="Script" id=3]
 [ext_resource path="res://UI/Inventory.gd" type="Script" id=4]
 [ext_resource path="res://UI/InventoryCanvas.gd" type="Script" id=5]
+[ext_resource path="res://UI/WeaponSlot.tscn" type="PackedScene" id=6]
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 2 )
@@ -43,7 +44,6 @@ margin_bottom = 70.0
 rect_min_size = Vector2( 70, 70 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
-idx = null
 
 [node name="Slot2" type="Panel" parent="Inventory/GridContainer"]
 margin_left = 73.0
@@ -120,3 +120,10 @@ rect_min_size = Vector2( 70, 70 )
 custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
 idx = 8
+
+[node name="WeaponSlot" parent="Inventory" instance=ExtResource( 6 )]
+
+[node name="Node2D" parent="Inventory/WeaponSlot" index="0"]
+position = Vector2( -63.5243, 172.768 )
+
+[editable path="Inventory/WeaponSlot"]

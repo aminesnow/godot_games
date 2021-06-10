@@ -6,7 +6,7 @@ func _ready():
 	GameEvents.connect("SlotClicked", self, "_on_slotClicked")
 	uiNode = find_parent("UI")
 
-func _on_slotClicked(event: InputEvent, slot: InventorySlot):
+func _on_slotClicked(event: InputEvent, slot: Slot):
 	
 	if slot.find_parent("Inventory") == self or slot.item == uiNode.holding_item:
 		if uiNode.holding_item:

@@ -13,9 +13,9 @@ func init_values():
 	category = JsonData.item_data[label]["Category"]
 	description = JsonData.item_data[label]["Description"]
 	if JsonData.item_data[label].has("Attack"):
-		stats.push_back("Attack: " + str(JsonData.item_data[label]["Attack"]))
+		stats.push_back("- Attack: " + str(JsonData.item_data[label]["Attack"]))
 	if JsonData.item_data[label].has("AddHealth"):
-		stats.push_back("Health: +" + str(JsonData.item_data[label]["AddHealth"]))
+		stats.push_back("- Health: +" + str(JsonData.item_data[label]["AddHealth"]))
 
 func set_quantity(amount):
 	quantity = amount

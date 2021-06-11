@@ -1,0 +1,95 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://UI/StartMenu.gd" type="Script" id=1]
+[ext_resource path="res://Root.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/StartMenuTheme.tres" type="Theme" id=3]
+[ext_resource path="res://UI/logo.png" type="Texture" id=4]
+[ext_resource path="res://UI/bg.png" type="Texture" id=5]
+
+[sub_resource type="Animation" id=1]
+resource_name = "logo"
+length = 1.4
+step = 0.2
+tracks/0/type = "value"
+tracks/0/path = NodePath("Sprite:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.2, 0.4, 0.6, 0.8, 1, 1.2, 1.4 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1, 1, 1 ),
+"update": 0,
+"values": [ Vector2( 512, 112 ), Vector2( 512, 132 ), Vector2( 512, 152 ), Vector2( 512, 172 ), Vector2( 512, 192 ), Vector2( 512, 212 ), Vector2( 512, 232 ), Vector2( 512, 252 ) ]
+}
+tracks/1/type = "method"
+tracks/1/path = NodePath(".")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/keys = {
+"times": PoolRealArray( 1.4 ),
+"transitions": PoolRealArray( 1 ),
+"values": [ {
+"args": [  ],
+"method": "show_menu"
+} ]
+}
+
+[node name="StartMenu" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+startScene = ExtResource( 2 )
+
+[node name="TextureRect" type="TextureRect" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+texture = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Sprite" type="Sprite" parent="."]
+position = Vector2( 512, 252 )
+texture = ExtResource( 4 )
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+anims/logo = SubResource( 1 )
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+visible = false
+anchor_top = 1.0
+anchor_bottom = 1.0
+margin_left = 100.0
+margin_top = -160.0
+margin_right = 278.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Start" type="Button" parent="VBoxContainer"]
+margin_right = 178.0
+margin_bottom = 24.0
+text = "New Game"
+
+[node name="Load" type="Button" parent="VBoxContainer"]
+margin_top = 28.0
+margin_right = 178.0
+margin_bottom = 52.0
+text = "Load Save"
+
+[node name="Quit" type="Button" parent="VBoxContainer"]
+margin_top = 56.0
+margin_right = 178.0
+margin_bottom = 80.0
+text = "Quit"
+
+[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="VBoxContainer/Load" to="." method="_on_Load_pressed"]
+[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]

@@ -87,7 +87,7 @@ _global_script_class_icons={
 [application]
 
 config/name="mvp"
-run/main_scene="res://Root.tscn"
+run/main_scene="res://UI/StartMenu.tscn"
 config/icon="res://icon.png"
 
 [autoload]

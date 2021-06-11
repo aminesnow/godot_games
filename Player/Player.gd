@@ -18,19 +18,26 @@ onready var stats = PlayerStats
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
 onready var animationState = animationTree.get("parameters/playback")
-onready var swordHB = $HitboxPivot/SwordHitBox
+onready var weaponHB = $HitboxPivot/SwordHitBox
 onready var hurtBox = $HurtBox
 onready var interactorPivot = $InteractorPivot
 onready var PlayerHurtSFX = preload("res://Effects/PlayerHurtSFX.tscn")
+onready var weapon = $Weapon
 
 var velocity = Vector2.ZERO
 var state = IDLE
 
 func _ready():
 	animationTree.active = true
-	swordHB.knockBackVector = Vector2.LEFT
+	weaponHB.knockBackVector = Vector2.LEFT
 	GameEvents.connect("OutOfHealth", self, "player_dead")
+	GameEvents.connect("WeaponEquiped", self, "equipe_weapon")
+	equipe_weapon()
 
+func equipe_weapon():
+	if PlayerInventory.weapon_slot != null:
+		weapon.texture = PlayerInventory.weapon_slot.get_texture()
+		weaponHB.damage = PlayerInventory.weapon_slot.damage
 
 func player_dead(obj):
 	if obj == self:
@@ -52,6 +59,9 @@ func idle():
 	if input_vector != Vector2.ZERO:
 		state = MOVE
 
+func has_weapon():
+	return PlayerInventory.weapon_slot != null
+
 func attack():
 	velocity = Vector2.ZERO
 	animationState.travel("Attack")
@@ -63,7 +73,7 @@ func move(delta):
 	var input_vector = get_input_vector()
 	
 	if input_vector != Vector2.ZERO:
-		swordHB.knockBackVector = input_vector
+		weaponHB.knockBackVector = input_vector
 		animationTree.set("parameters/Idle/blend_position", input_vector)
 		animationTree.set("parameters/Run/blend_position", input_vector)
 		animationTree.set("parameters/Attack/blend_position", input_vector)
@@ -75,7 +85,7 @@ func move(delta):
 
 	velocity = move_and_slide(velocity)
 	
-	if Input.is_action_just_pressed("attack"):
+	if Input.is_action_just_pressed("attack") and has_weapon():
 		state = ATTACK
 
 func init_player_pose(init_pose):

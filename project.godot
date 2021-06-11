@@ -24,6 +24,11 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Enemies/Bat.gd"
 }, {
+"base": "Item",
+"class": "ConsumableItem",
+"language": "GDScript",
+"path": "res://Items/ConsumableItem.gd"
+}, {
 "base": "Slot",
 "class": "ContainerSlot",
 "language": "GDScript",
@@ -53,17 +58,30 @@ _global_script_classes=[ {
 "class": "Slot",
 "language": "GDScript",
 "path": "res://UI/Slot.gd"
+}, {
+"base": "CanvasLayer",
+"class": "UI",
+"language": "GDScript",
+"path": "res://UI.gd"
+}, {
+"base": "Item",
+"class": "WeaponItem",
+"language": "GDScript",
+"path": "res://Items/WeaponItem.gd"
 } ]
 _global_script_class_icons={
 "AbstractLevel": "",
 "AbstractStats": "",
 "Bat": "",
+"ConsumableItem": "",
 "ContainerSlot": "",
 "Interactable": "",
 "Item": "",
 "LevelGate": "",
 "Player": "",
-"Slot": ""
+"Slot": "",
+"UI": "",
+"WeaponItem": ""
 }
 
 [application]
@@ -151,6 +169,11 @@ interact={
 inventory={
 "deadzone": 0.5,
 "events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":73,"unicode":0,"echo":false,"script":null)
+ ]
+}
+pause={
+"deadzone": 0.5,
+"events": [ Object(InputEventKey,"resource_local_to_scene":false,"resource_name":"","device":0,"alt":false,"shift":false,"control":false,"meta":false,"command":false,"pressed":false,"scancode":16777217,"unicode":0,"echo":false,"script":null)
  ]
 }
 

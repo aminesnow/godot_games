@@ -6,6 +6,7 @@
 extents = Vector2( 23.3593, 22.1352 )
 
 [node name="Interactable" type="Area2D"]
+pause_mode = 2
 collision_layer = 0
 collision_mask = 32
 script = ExtResource( 1 )

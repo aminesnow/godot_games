@@ -1,10 +1,12 @@
-extends Item
+extends ConsumableItem
 
 
 func _ready():
-	ready()
+	print("_ready")
+	init_values()
 
 
-func ready():
+func init_values():
 	label = "Health Potion"
-	.ready()
+	.init_values()
+	print(label)

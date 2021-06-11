@@ -2,12 +2,14 @@
 	"Sword": {
 		"Category": "Weapon",
 		"StackSize": 1,
+		"Attack": 1,
 		"Description": "Sharp and cuts like a modafaka"
 	},
 	
 	"Mace": {
 		"Category": "Weapon",
 		"StackSize": 1,
+		"Attack": 3,
 		"Description": "Heavy and solid, like my d***"
 	},
 	"Health Potion": {

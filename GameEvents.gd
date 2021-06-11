@@ -14,6 +14,9 @@ signal OpenInventory
 signal CloseInventory
 signal OpenContainer(containerItems)
 signal CloseContainer
+signal WeaponEquiped
+signal ShowSlotPopup(item)
+signal HideSlotPopup
 
 # Called when the node enters the scene tree for the first time.
 func _ready():

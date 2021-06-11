@@ -80,6 +80,42 @@ tracks/4/keys = {
 } ],
 "times": PoolRealArray( 0.1 )
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Weapon:position")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( 13, 5 ), Vector2( -2, 23 ), Vector2( -13, 14 ), Vector2( -16, 4 ) ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Weapon:rotation_degrees")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 135.0, 225.0, 285.0, 315.0 ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Weapon:visible")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.4 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
 
 [sub_resource type="Animation" id=3]
 resource_name = "AttackLeft"
@@ -147,6 +183,42 @@ tracks/4/keys = {
 "stream": ExtResource( 6 )
 } ],
 "times": PoolRealArray( 0.1 )
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Weapon:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Weapon:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -1, -9 ), Vector2( -18, 5 ), Vector2( -7, 14 ), Vector2( 2, 14 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Weapon:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 404.999, 315.0, 255.0, 225.0 ]
 }
 
 [sub_resource type="Animation" id=4]
@@ -216,6 +288,42 @@ tracks/4/keys = {
 } ],
 "times": PoolRealArray( 0.1 )
 }
+tracks/5/type = "value"
+tracks/5/path = NodePath("Weapon:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Weapon:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -9.53674e-07, -14 ), Vector2( 18, 5 ), Vector2( 6, 13 ), Vector2( -2, 14 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Weapon:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 44.9999, 135.0, 195.0, 225.0 ]
+}
 
 [sub_resource type="Animation" id=5]
 resource_name = "AttackUp"
@@ -283,6 +391,42 @@ tracks/4/keys = {
 "stream": ExtResource( 6 )
 } ],
 "times": PoolRealArray( 0.1 )
+}
+tracks/5/type = "value"
+tracks/5/path = NodePath("Weapon:visible")
+tracks/5/interp = 1
+tracks/5/loop_wrap = true
+tracks/5/imported = false
+tracks/5/enabled = true
+tracks/5/keys = {
+"times": PoolRealArray( 0, 0.3 ),
+"transitions": PoolRealArray( 1, 1 ),
+"update": 1,
+"values": [ true, false ]
+}
+tracks/6/type = "value"
+tracks/6/path = NodePath("Weapon:position")
+tracks/6/interp = 1
+tracks/6/loop_wrap = true
+tracks/6/imported = false
+tracks/6/enabled = true
+tracks/6/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ Vector2( -14, -4.76837e-07 ), Vector2( 0, -15 ), Vector2( 14, -3 ), Vector2( 14, 3 ) ]
+}
+tracks/7/type = "value"
+tracks/7/path = NodePath("Weapon:rotation_degrees")
+tracks/7/interp = 1
+tracks/7/loop_wrap = true
+tracks/7/imported = false
+tracks/7/enabled = true
+tracks/7/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3 ),
+"transitions": PoolRealArray( 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 315.0, 404.999, 464.999, 494.999 ]
 }
 
 [sub_resource type="Animation" id=6]
@@ -528,7 +672,12 @@ texture = ExtResource( 4 )
 [node name="Model" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 hframes = 60
-frame = 12
+frame = 31
+
+[node name="Weapon" type="Sprite" parent="."]
+visible = false
+position = Vector2( 14, 3 )
+rotation = 8.63937
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2( 0, 9 )
@@ -567,7 +716,7 @@ shape = SubResource( 35 )
 
 [node name="HitboxPivot" type="Position2D" parent="."]
 position = Vector2( 0, 4 )
-rotation = 1.5708
+rotation = 4.71239
 
 [node name="SwordHitBox" parent="HitboxPivot" instance=ExtResource( 3 )]
 position = Vector2( 15, 0 )

@@ -6,8 +6,11 @@ func _input(event):
 	if event.is_action_pressed("inventory"):
 		if $Inventory.visible:
 			GameEvents.emit_signal("CloseInventory")
+			GameEvents.emit_signal("HideSlotPopup")
+			get_tree().paused = false
 		else:
 			GameEvents.emit_signal("OpenInventory")
+			get_tree().paused = true
 
 func _ready():
 	$Inventory.visible = false

@@ -9,13 +9,13 @@ func _ready():
 
 
 func open(id: String, containerItems: Dictionary):
-	print(containerItems)
 	for key in containerItems:
 		var slot: Slot = $Inventory/GridContainer.get_child(key)
 		slot.item = containerItems[key]
 		slot.container_id = id
 		slot.update_inventory()
-		slot.add_child(slot.item)
+		if slot.item != null:
+			slot.add_child(slot.item)
 	$Inventory.visible = true
 
 func close():

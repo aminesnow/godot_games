@@ -1,11 +1,11 @@
-extends Item
+extends WeaponItem
 
 
 func _ready():
-	ready()
+	init_values()
 
-func ready():
+func init_values():
 	label = "Sword"
-	.ready()
+	.init_values()
 
 

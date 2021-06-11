@@ -23,6 +23,7 @@ func _ready():
 
 func interact():
 	if !is_open():
+		get_tree().paused = true
 		open = true
 		animatedSprite.play("open")
 		var items = {}
@@ -39,8 +40,7 @@ func interact():
 			for slot in slots:
 				if slot["slot"] != null:
 					var item = slot["slot"].instance()
-					item.ready()
-					item.add_quantity(slot["quant"])
+					item.set_quantity(slot["quant"])
 					items[slot["idx"]] = item
 
 		GameEvents.emit_signal("OpenContainer", id, items)
@@ -51,7 +51,9 @@ func interact():
 
 
 func stop_interact():
+	get_tree().paused = false
 	GameEvents.emit_signal("CloseContainer")
+	GameEvents.emit_signal("HideSlotPopup")
 	GameEvents.disconnect("CloseInventory", self, "interact")
 	if open:
 		animatedSprite.play("open", true)

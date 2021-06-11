@@ -6,7 +6,7 @@ func _ready():
 	GameEvents.connect("SlotClicked", self, "_on_slotClicked")
 	uiNode = find_parent("UI")
 
-func _on_slotClicked(event: InputEvent, slot: Slot):
+func _on_slotClicked(slot: Slot):
 	
 	if slot.find_parent("Inventory") == self or slot.item == uiNode.holding_item:
 		if uiNode.holding_item:
@@ -34,6 +34,6 @@ func _on_slotClicked(event: InputEvent, slot: Slot):
 			slot.pickFromSlot()
 			uiNode.holding_item.global_position = get_global_mouse_position()
 
-func _input(event):
+func _input(_event):
 	if uiNode.holding_item:
 		uiNode.holding_item.global_position = get_global_mouse_position()

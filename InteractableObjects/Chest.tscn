@@ -27,6 +27,7 @@ extents = Vector2( 15.6816, 12.5893 )
 script = ExtResource( 2 )
 
 [node name="Interactable" parent="." instance=ExtResource( 1 )]
+pause_mode = 0
 iteractableObjPath = NodePath("..")
 id = "chest1"
 

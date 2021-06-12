@@ -12,13 +12,14 @@ func _ready():
 
 
 func show_info(item: Item):
-	rect_position = get_global_mouse_position()
-	itemName.bbcode_text = "[center][u][b][color=black]" + item.label + "[/color][/b][/u][/center]"
-	itemDesc.text = item.description
-	var stats = [stat1, stat2, stat3]
-	for i in item.stats.size():
-		stats[i].text = item.stats[i]
-	show()
+	if item != null:
+		rect_position = get_global_mouse_position()
+		itemName.bbcode_text = "[center][u][b][color=black]" + item.label + "[/color][/b][/u][/center]"
+		itemDesc.text = item.description
+		var stats = [stat1, stat2, stat3]
+		for i in item.stats.size():
+			stats[i].text = item.stats[i]
+		show()
 
 func hide_info():
 	hide()

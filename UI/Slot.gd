@@ -1,9 +1,9 @@
 class_name Slot
 extends Panel
 
-
-var item: Item = null
+onready var uiNode: UI = find_parent("UI")
 export(int) var idx
+var item: Item = null
 
 func _ready():
 	randomize()
@@ -14,7 +14,7 @@ func _ready():
 
 
 func _on_Slot_mouse_entered():
-	if item != null:
+	if item != null and uiNode.holding_item == null:
 		GameEvents.emit_signal("ShowSlotPopup", item)
 
 
@@ -40,6 +40,9 @@ func _on_guiInput(event: InputEvent):
 func process_click(event: InputEventMouseButton):
 	if event.button_index == BUTTON_LEFT && event.pressed:
 		GameEvents.emit_signal("SlotClicked", self)
+
+	if item != null and event.is_action_pressed("consume") and item.category == Item.CATEGORY_Consumable:
+		item.consume()
 
 func update_inventory():
 	pass

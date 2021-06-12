@@ -10,3 +10,7 @@ func change_max_health(new_health):
 func take_damage(damage, obj):
 	.take_damage(damage, obj)
 	GameEvents.emit_signal("PlayerHealthChanged", health)
+
+func add_health(amount):
+	.add_health(amount)
+	GameEvents.emit_signal("PlayerHealthChanged", health)

@@ -13,9 +13,9 @@
 		"Description": "Heavy and solid, like my d***"
 	},
 	"Health Potion": {
-		"Category": "Resource",
+		"Category": "Consumable",
 		"StackSize": 99,
-		"AddHealth": 3,
+		"AddHealth": 1,
 		"Description": "Regens health"
 	}
 	

@@ -21,3 +21,6 @@ func take_damage(damage, obj):
 
 func out_of_health(obj):
 	GameEvents.emit_signal("OutOfHealth", obj)
+
+func add_health(amount):
+	health = clamp(health + amount, 0, max_health)

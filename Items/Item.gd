@@ -8,6 +8,9 @@ var stack_size: int
 var category: String
 var stats = []
 
+const CATEGORY_Weapon = "Weapon"
+const CATEGORY_Consumable = "Consumable"
+
 func init_values():
 	stack_size = int(JsonData.item_data[label]["StackSize"])
 	category = JsonData.item_data[label]["Category"]

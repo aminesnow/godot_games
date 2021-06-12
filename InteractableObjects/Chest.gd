@@ -51,11 +51,11 @@ func interact():
 
 
 func stop_interact():
-	get_tree().paused = false
-	GameEvents.emit_signal("CloseContainer")
-	GameEvents.emit_signal("HideSlotPopup")
-	GameEvents.disconnect("CloseInventory", self, "interact")
-	if open:
+	if is_open():
+		get_tree().paused = false
+		GameEvents.emit_signal("CloseContainer")
+		GameEvents.emit_signal("HideSlotPopup")
+		GameEvents.disconnect("CloseInventory", self, "interact")
 		animatedSprite.play("open", true)
 		open = false
 

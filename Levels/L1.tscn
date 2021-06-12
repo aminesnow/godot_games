@@ -15,6 +15,7 @@
 [ext_resource path="res://Items/Potion.tscn" type="PackedScene" id=13]
 
 [node name="L1" type="Node2D"]
+pause_mode = 1
 script = ExtResource( 11 )
 
 [node name="GrassBG" type="Sprite" parent="."]

@@ -6,7 +6,7 @@
 [ext_resource path="res://Levels.gd" type="Script" id=4]
 [ext_resource path="res://UI/Inventory.tscn" type="PackedScene" id=5]
 [ext_resource path="res://UI/Container.tscn" type="PackedScene" id=6]
-[ext_resource path="res://UI.gd" type="Script" id=7]
+[ext_resource path="res://UI/UI.gd" type="Script" id=7]
 [ext_resource path="res://UI/ToolTip.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Root.gd" type="Script" id=9]
 [ext_resource path="res://UI/StartMenuTheme.tres" type="Theme" id=10]
@@ -26,6 +26,8 @@ script = ExtResource( 4 )
 [node name="SceneChanger" parent="." instance=ExtResource( 2 )]
 
 [node name="PauseMenu" parent="." instance=ExtResource( 12 )]
+pause_mode = 2
+layer = 5
 
 [node name="UiController" type="Control" parent="."]
 pause_mode = 2

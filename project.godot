@@ -62,7 +62,7 @@ _global_script_classes=[ {
 "base": "CanvasLayer",
 "class": "UI",
 "language": "GDScript",
-"path": "res://UI.gd"
+"path": "res://UI/UI.gd"
 }, {
 "base": "Item",
 "class": "WeaponItem",

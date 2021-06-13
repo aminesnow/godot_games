@@ -23,7 +23,10 @@ animations = [ {
 [sub_resource type="RectangleShape2D" id=4]
 extents = Vector2( 15.6816, 12.5893 )
 
-[node name="Chest" type="StaticBody2D"]
+[node name="Chest" type="StaticBody2D" groups=[
+"interactables",
+]]
+pause_mode = 2
 script = ExtResource( 2 )
 
 [node name="Interactable" parent="." instance=ExtResource( 1 )]

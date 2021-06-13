@@ -22,9 +22,11 @@ func _ready():
 
 func open():
 	$Inventory.visible = true
+	PlayerInventory.open = true
 
 func open_with_container(_id, _items):
 	open()
 
 func close():
 	$Inventory.visible = false
+	PlayerInventory.open = false

@@ -14,20 +14,28 @@ onready var interactable = $Interactable
 
 var id: String
 var open = false
+var items = null
 
 func _ready():
 	id = $Interactable.id
 	if is_open():
 		animatedSprite.frame = 1
-
+	items = get_items()
 
 func interact():
 	if !is_open():
 		get_tree().paused = true
 		open = true
 		animatedSprite.play("open")
-		var items = {}
+		GameEvents.emit_signal("OpenContainer", id, items)
+		GameEvents.connect("CloseInventory", self, "interact")
+		#InteractableGlobals.set_state_attr(interactable.id, "open", true)
+	else:
+		stop_interact()
 
+func get_items():
+	if items == null:
+		items= {}
 		if ContainersInventory.containers_slot.has(id):
 			items = ContainersInventory.containers_slot[id]
 		else:
@@ -43,12 +51,8 @@ func interact():
 					item.set_quantity(slot["quant"])
 					items[slot["idx"]] = item
 
-		GameEvents.emit_signal("OpenContainer", id, items)
-		GameEvents.connect("CloseInventory", self, "interact")
-		#InteractableGlobals.set_state_attr(interactable.id, "open", true)
-	else:
-		stop_interact()
-
+			ContainersInventory.containers_slot[id] = items
+	return items
 
 func stop_interact():
 	if is_open():

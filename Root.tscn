@@ -17,7 +17,9 @@
 pause_mode = 2
 script = ExtResource( 9 )
 
-[node name="Levels" type="Node2D" parent="."]
+[node name="Levels" type="Node2D" parent="." groups=[
+"levels",
+]]
 pause_mode = 1
 script = ExtResource( 4 )
 

@@ -5,6 +5,11 @@ extends Node
 export var max_health = 1 setget set_max_health
 onready var health = max_health
 
+func get_save_data():
+	return {
+		"health": health,
+		"max_health": max_health
+	}
 
 func set_max_health(new_health):
 	max_health = new_health

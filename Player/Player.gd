@@ -94,6 +94,13 @@ func init_player_pose(init_pose):
 	animationTree.set("parameters/Run/blend_position", poseVector)
 	animationTree.set("parameters/Attack/blend_position", poseVector)
 
+func get_save_data():
+	var position = global_position
+	var player_stats = stats.get_save_data()
+	return {
+		"position": position,
+		"stats": player_stats
+	}
 
 func _on_HurtBox_area_entered(area):
 	stats.take_damage(area.damage, self)

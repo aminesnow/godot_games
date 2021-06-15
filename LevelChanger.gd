@@ -34,6 +34,7 @@ func start_change_scene(sourceGateID, targetScene: String, delay = 0.0):
 		
 		GameEvents.emit_signal("SceneChanged")
 
+		# Set player position for next level
 		var levelGates = get_tree().get_nodes_in_group("LevelGates")
 		for obj in levelGates:
 			var gate: LevelGate = obj

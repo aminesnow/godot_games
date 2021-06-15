@@ -6,7 +6,7 @@
 [ext_resource path="res://UI/btn.png" type="Texture" id=4]
 [ext_resource path="res://UI/btn_close.png" type="Texture" id=5]
 [ext_resource path="res://Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=6]
-[ext_resource path="res://UI/SaveNode.gd" type="Script" id=7]
+[ext_resource path="res://UI/SaveMenu.gd" type="Script" id=7]
 
 [sub_resource type="DynamicFont" id=1]
 size = 30

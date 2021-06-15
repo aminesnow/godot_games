@@ -1,7 +1,7 @@
 [gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://UI/StartMenu.gd" type="Script" id=1]
-[ext_resource path="res://Root.tscn" type="PackedScene" id=2]
+[ext_resource path="res://UI/SaveMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/StartMenuTheme.tres" type="Theme" id=3]
 [ext_resource path="res://UI/logo.png" type="Texture" id=4]
 [ext_resource path="res://UI/bg.png" type="Texture" id=5]
@@ -45,7 +45,6 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-startScene = ExtResource( 2 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0
@@ -62,8 +61,7 @@ texture = ExtResource( 4 )
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
 anims/logo = SubResource( 1 )
 
-[node name="VBoxContainer" type="VBoxContainer" parent="."]
-visible = false
+[node name="MenuButtons" type="VBoxContainer" parent="."]
 anchor_top = 1.0
 anchor_bottom = 1.0
 margin_left = 100.0
@@ -73,23 +71,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="Start" type="Button" parent="VBoxContainer"]
+[node name="Start" type="Button" parent="MenuButtons"]
 margin_right = 178.0
 margin_bottom = 24.0
 text = "New Game"
 
-[node name="Load" type="Button" parent="VBoxContainer"]
+[node name="Load" type="Button" parent="MenuButtons"]
 margin_top = 28.0
 margin_right = 178.0
 margin_bottom = 52.0
 text = "Load Save"
 
-[node name="Quit" type="Button" parent="VBoxContainer"]
+[node name="Quit" type="Button" parent="MenuButtons"]
 margin_top = 56.0
 margin_right = 178.0
 margin_bottom = 80.0
 text = "Quit"
 
-[connection signal="pressed" from="VBoxContainer/Start" to="." method="_on_Start_pressed"]
-[connection signal="pressed" from="VBoxContainer/Load" to="." method="_on_Load_pressed"]
-[connection signal="pressed" from="VBoxContainer/Quit" to="." method="_on_Quit_pressed"]
+[node name="SaveMenu" parent="." instance=ExtResource( 2 )]
+type = 1
+
+[connection signal="pressed" from="MenuButtons/Start" to="." method="_on_Start_pressed"]
+[connection signal="pressed" from="MenuButtons/Load" to="." method="_on_Load_pressed"]
+[connection signal="pressed" from="MenuButtons/Quit" to="." method="_on_Quit_pressed"]
+[connection signal="pressed" from="SaveMenu/ExitSave" to="." method="_on_ExitSave_pressed"]
+
+[editable path="SaveMenu"]

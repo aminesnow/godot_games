@@ -5,6 +5,11 @@ var open = false
 var slots = {}
 var weapon_slot: WeaponItem
 
+func load_save_data(data):
+	var weapon_scene: String = data["player_inventory"]["weapon"]
+	weapon_slot = load(weapon_scene).instance()
+	# TODO
+
 func get_save_data():
 	var ws = null
 	if weapon_slot != null:

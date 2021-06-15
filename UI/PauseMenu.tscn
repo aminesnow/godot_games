@@ -3,7 +3,7 @@
 [ext_resource path="res://UI/PauseMenu.gd" type="Script" id=1]
 [ext_resource path="res://UI/bg.png" type="Texture" id=2]
 [ext_resource path="res://UI/StartMenuTheme.tres" type="Theme" id=3]
-[ext_resource path="res://UI/SaveNode.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/SaveMenu.tscn" type="PackedScene" id=4]
 
 [node name="PauseMenu" type="CanvasLayer"]
 script = ExtResource( 1 )

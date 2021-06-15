@@ -16,9 +16,12 @@ func process_click(event: InputEventMouseButton):
 		pass
 	else:
 		.process_click(event)
-	
-	
-	
+
 func update_inventory():
 	PlayerInventory.weapon_slot = item
 	GameEvents.emit_signal("WeaponEquiped")
+
+func load_save_data(data):
+	var weapon_scene: String = data["player_inventory"]["weapon"]
+	var weapon_slot = load(weapon_scene).instance()
+	item = weapon_slot

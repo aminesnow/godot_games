@@ -8,7 +8,12 @@ var weapon_slot: WeaponItem
 func load_save_data(data):
 	var weapon_scene: String = data["player_inventory"]["weapon"]
 	weapon_slot = load(weapon_scene).instance()
-	# TODO
+	var inv_save_slots = data["player_inventory"]["slots"]
+	for slot_key in inv_save_slots:
+		if inv_save_slots[slot_key].item != null:
+			var item = load(inv_save_slots[slot_key].item).instance()
+			item.set_quantity(inv_save_slots[slot_key].quantity)
+			slots[slot_key] = item
 
 func get_save_data():
 	var ws = null

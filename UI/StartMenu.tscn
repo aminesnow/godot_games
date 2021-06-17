@@ -1,10 +1,11 @@
-[gd_scene load_steps=7 format=2]
+[gd_scene load_steps=8 format=2]
 
 [ext_resource path="res://UI/StartMenu.gd" type="Script" id=1]
 [ext_resource path="res://UI/SaveMenu.tscn" type="PackedScene" id=2]
 [ext_resource path="res://UI/StartMenuTheme.tres" type="Theme" id=3]
 [ext_resource path="res://UI/logo.png" type="Texture" id=4]
 [ext_resource path="res://UI/bg.png" type="Texture" id=5]
+[ext_resource path="res://Root.tscn" type="PackedScene" id=6]
 
 [sub_resource type="Animation" id=1]
 resource_name = "logo"
@@ -45,6 +46,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
+startScene = ExtResource( 6 )
 
 [node name="TextureRect" type="TextureRect" parent="."]
 anchor_right = 1.0

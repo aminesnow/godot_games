@@ -12,11 +12,18 @@ const SAVE_DIR = "user://saves/"
 const SAVE_FILE = SAVE_DIR + "save_{idx}.dat"
 const ENCRYPT_KEY = "azerty"
 
-func _ready():
-	load_saves()
+onready var saveSlots =  $NinePatchRect/MarginContainer/SaveSlots
 
-func load_saves():
-	pass
+var startScene: PackedScene
+
+func _ready():
+	get_saves()
+
+func get_saves():
+	var file = File.new()
+	for i in range(3):
+		if file.file_exists(_get_save_path(i)):
+			saveSlots.get_child(i).set_label("Save " + str(i+1))
 
 func process_click(idx):
 	match type:
@@ -26,10 +33,12 @@ func process_click(idx):
 			load_save(idx)
 
 func save(idx):
-	var save_data = {}
+	var save_data = {
+		"object": {}
+	}
 	var nodes = get_tree().get_nodes_in_group("save")
 	for node in nodes:
-		save_data[node.filename] = node.get_save_data()
+		save_data["object"][node.filename] = node.get_save_data()
 	save_data["player_inventory"] = PlayerInventory.get_save_data()
 	save_data["containers_slots"] = ContainersInventory.get_save_data()
 	save_data["currents_level"] = get_tree().get_nodes_in_group("levels")[0].get_child(0).filename
@@ -47,6 +56,7 @@ func save(idx):
 		return
 	file.store_var(save_data)
 	file.close()
+	get_saves()
 
 
 func load_save(idx):
@@ -57,21 +67,29 @@ func load_save(idx):
 			print(err)
 			return
 		var data = file.get_var()
-		print(data)
 		file.close()
-		return data
+		
+		print(data)
+		PlayerInventory.load_save_data(data)
+		var staring_point = startScene.instance()
+		staring_point.startLevelPath = data["currents_level"]
+		print("loading save")
+		get_tree().get_root().add_child(staring_point)
+		print(PlayerInventory.slots)
+		find_parent("StartMenu").queue_free()
+
 
 func _get_save_path(idx):
 	return SAVE_FILE.format({"idx": idx})
 
 func _on_Slot1_pressed():
-	process_click(1)
+	process_click(0)
 
 
 func _on_Slot2_pressed():
-	process_click(2)
+	process_click(1)
 
 
 func _on_Slot3_pressed():
-	process_click(3)
+	process_click(2)
 

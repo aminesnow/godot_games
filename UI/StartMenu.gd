@@ -9,6 +9,7 @@ onready var saveMenu = $SaveMenu
 func _ready():
 	$AnimationPlayer.play("logo")
 	saveMenu.visible = false
+	saveMenu.startScene = startScene
 
 func show_menu():
 	menuBtns.visible = true

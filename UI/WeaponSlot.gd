@@ -1,5 +1,12 @@
 extends Slot
 
+func init_slot():
+	if PlayerInventory.weapon_slot != null:
+		item = PlayerInventory.weapon_slot
+		item.position = Vector2(0, 0)
+		item.set_quantity(0)
+		add_child(item)
+
 func pickFromSlot():
 	.pickFromSlot()
 	update_inventory()
@@ -20,8 +27,3 @@ func process_click(event: InputEventMouseButton):
 func update_inventory():
 	PlayerInventory.weapon_slot = item
 	GameEvents.emit_signal("WeaponEquiped")
-
-func load_save_data(data):
-	var weapon_scene: String = data["player_inventory"]["weapon"]
-	var weapon_slot = load(weapon_scene).instance()
-	item = weapon_slot

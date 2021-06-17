@@ -126,10 +126,10 @@ custom_styles/panel = SubResource( 1 )
 script = ExtResource( 3 )
 idx = 8
 
-[node name="Node2D" type="Node2D" parent="Inventory"]
+[node name="Weapon" type="Node2D" parent="Inventory"]
 position = Vector2( -63.4049, 172.194 )
 
-[node name="Slot" type="Panel" parent="Inventory/Node2D"]
+[node name="Slot" type="Panel" parent="Inventory/Weapon"]
 margin_right = 40.0
 margin_bottom = 40.0
 rect_min_size = Vector2( 70, 70 )

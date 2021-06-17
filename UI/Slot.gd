@@ -6,7 +6,7 @@ export(int) var idx
 var item: Item = null
 
 func _ready():
-	randomize()
+	init_slot()
 	self.connect("gui_input", self, "_on_guiInput")
 	self.connect("mouse_entered", self, "_on_Slot_mouse_entered")
 	self.connect("mouse_exited", self, "_on_Slot_mouse_exited")
@@ -45,4 +45,7 @@ func process_click(event: InputEventMouseButton):
 		item.consume()
 
 func update_inventory():
+	pass
+
+func init_slot():
 	pass

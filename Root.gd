@@ -4,8 +4,6 @@ onready var levels = $Levels
 var startLevelPath = "res://Levels/L1.tscn"
 
 func _ready():
-	print(levels)
-	print(startLevelPath)
 	change_level()
 
 func change_level():

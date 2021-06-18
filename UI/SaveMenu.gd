@@ -34,11 +34,11 @@ func process_click(idx):
 
 func save(idx):
 	var save_data = {
-		"object": {}
+		"objects": {}
 	}
 	var nodes = get_tree().get_nodes_in_group("save")
 	for node in nodes:
-		save_data["object"][node.filename] = node.get_save_data()
+		save_data["objects"][node.get_path()] = node.get_save_data()
 	save_data["player_inventory"] = PlayerInventory.get_save_data()
 	save_data["containers_slots"] = ContainersInventory.get_save_data()
 	save_data["currents_level"] = get_tree().get_nodes_in_group("levels")[0].get_child(0).filename
@@ -71,11 +71,20 @@ func load_save(idx):
 		
 		print(data)
 		PlayerInventory.load_save_data(data)
+		ContainersInventory.load_save_data(data)
+		
 		var staring_point = startScene.instance()
 		staring_point.startLevelPath = data["currents_level"]
+		staring_point.visible = false
 		print("loading save")
 		get_tree().get_root().add_child(staring_point)
-		print(PlayerInventory.slots)
+		
+		for obj_path in data["objects"]:
+			var obj = staring_point.get_node(obj_path)
+			if obj != null:
+				obj.load_save_data(data["objects"][obj_path])
+		
+		staring_point.visible = true
 		find_parent("StartMenu").queue_free()
 
 

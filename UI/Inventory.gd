@@ -14,7 +14,7 @@ func _on_slotClicked(slot: Slot):
 				slot.putIntoSlot(uiNode.holding_item)
 				uiNode.holding_item = null
 			else:
-				if uiNode.holding_item.label == slot.item.label:
+				if uiNode.holding_item.label == slot.item.label && slot.item.category != Item.CATEGORY_Weapon:
 					var able_to_add = slot.item.stack_size - slot.item.quantity
 					if able_to_add >= uiNode.holding_item.quantity:
 						slot.item.add_quantity(uiNode.holding_item.quantity)

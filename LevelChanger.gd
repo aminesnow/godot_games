@@ -1,24 +1,22 @@
 extends CanvasLayer
 
 
-
-
 onready var animation_player = $AnimationPlayer
 onready var colorRect = $Control/ColorRect
 onready var root: Node = get_parent()
 onready var levels: Node = root.get_node("Levels")
 
-var changingScene = false
+var changingLevel = false
 
 func _ready():
 	GameEvents.connect("ChangeScene", self, "on_ChangeScene")
-	
-func on_ChangeScene(gateID, targetLevel):
-	start_change_scene(gateID, targetLevel)
 
-func start_change_scene(sourceGateID, targetScene: String, delay = 0.0):
-	if !changingScene:
-		changingScene = true
+func on_ChangeScene(gateID, targetLevel):
+	start_change_level(gateID, targetLevel)
+
+func start_change_level(sourceGateID, targetScene: String, delay = 0.0):
+	if !changingLevel:
+		changingLevel = true
 		yield(get_tree().create_timer(delay), "timeout")
 		animation_player.play("Fade")
 		yield(animation_player, "animation_finished")
@@ -44,12 +42,12 @@ func start_change_scene(sourceGateID, targetScene: String, delay = 0.0):
 				player.init_player_pose(gate.playerPose)
 				break
 
-		finish_change_scene(delay)
+		finish_change_level(delay)
 
 
-func finish_change_scene(delay):
-	if changingScene:
-		changingScene = false
+func finish_change_level(delay):
+	if changingLevel:
+		changingLevel = false
 		yield(get_tree().create_timer(delay), "timeout")
 		animation_player.play_backwards("Fade")
 		yield(animation_player, "animation_finished")

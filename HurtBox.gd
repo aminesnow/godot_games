@@ -14,6 +14,6 @@ func activate_invicibility():
 
 func _on_HurtBox_area_entered(_area):
 	var he = HitEffect.instance()
-	get_tree().current_scene.add_child(he)
+	get_tree().get_root().add_child(he)
 	he.global_position = global_position - hit_effect_offset
 

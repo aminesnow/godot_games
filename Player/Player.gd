@@ -102,9 +102,14 @@ func get_save_data():
 		"stats": player_stats
 	}
 
+func load_save_data(data):
+	global_position = data["position"]
+	stats.load_save_data(data["stats"])
+
 func _on_HurtBox_area_entered(area):
 	stats.take_damage(area.damage, self)
-	get_tree().current_scene.add_child(PlayerHurtSFX.instance())
+	print(get_tree().current_scene)
+	get_tree().get_root().add_child(PlayerHurtSFX.instance())
 	hurtBox.activate_invicibility()
 
 func get_input_vector() -> Vector2:

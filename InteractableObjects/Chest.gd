@@ -29,7 +29,6 @@ func interact():
 		animatedSprite.play("open")
 		GameEvents.emit_signal("OpenContainer", id, items)
 		GameEvents.connect("CloseInventory", self, "interact")
-		#InteractableGlobals.set_state_attr(interactable.id, "open", true)
 	else:
 		stop_interact()
 

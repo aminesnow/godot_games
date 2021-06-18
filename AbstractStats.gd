@@ -11,10 +11,18 @@ func get_save_data():
 		"max_health": max_health
 	}
 
+func load_save_data(data):
+	set_max_health(data["max_health"])
+	GameEvents.emit_signal("PlayerMaxHealthChanged", max_health)
+	set_health(data["health"])
+	GameEvents.emit_signal("PlayerHealthChanged", health)
+
 func set_max_health(new_health):
 	max_health = new_health
 	health = min(new_health, max_health)
 
+func set_health(new_health):
+	health = clamp(new_health, 0, max_health)
 
 func change_max_health(new_health):
 	set_max_health(new_health)

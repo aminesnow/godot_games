@@ -22,7 +22,7 @@ func _ready():
 		animatedSprite.frame = 1
 	items = get_items()
 
-func interact():
+func interact(_interactor):
 	if !is_open():
 		get_tree().paused = true
 		open = true

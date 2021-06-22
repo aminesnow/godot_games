@@ -1,0 +1,19 @@
+{
+	"events": [
+		{
+			"character": "character-1624381253.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Hello there lil shit. I don't know why you're here in this shitty game, but whatever.\nYou need to go pick up some items in the chest over there, then go to the next level and slay all the bats.\nBut here's the twist, you have to slay all the bats with only 3 hits!\nGood luck lil shit, now fuck off!"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1624381741.json",
+		"name": "oldman1_chat1"
+	}
+}

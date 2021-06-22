@@ -14,27 +14,14 @@ func _process(delta):
 			pause_game()
 
 func pause_game():
-	disable_interactables()
-	get_tree().paused = true
 	$PauseNode.visible = true
 	GameEvents.emit_signal("PauseGame")
 
 func unpause_game():
-	enable_interactables()
-	if !PlayerInventory.open:
-		get_tree().paused = false
 	$PauseNode.visible = false
 	GameEvents.emit_signal("UnPauseGame")
 
-func disable_interactables():
-	var inters = get_tree().get_nodes_in_group("interactables")
-	for inter in inters:
-		inter.set_pause_mode(Node.PAUSE_MODE_STOP)
 
-func enable_interactables():
-	var inters = get_tree().get_nodes_in_group("interactables")
-	for inter in inters:
-		inter.set_pause_mode(Node.PAUSE_MODE_PROCESS)
 
 func _on_Exit_pressed():
 	get_tree().quit()

@@ -88,8 +88,8 @@ func move(delta):
 	if Input.is_action_just_pressed("attack") and has_weapon():
 		state = ATTACK
 
-func init_player_pose(init_pose):
-	var poseVector = Commons.PoseVecotrs[init_pose]
+func set_player_pose(init_pose):
+	var poseVector = Commons.PoseVectors[init_pose]
 	animationTree.set("parameters/Idle/blend_position", poseVector)
 	animationTree.set("parameters/Run/blend_position", poseVector)
 	animationTree.set("parameters/Attack/blend_position", poseVector)

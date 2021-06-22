@@ -674,7 +674,7 @@ texture = ExtResource( 4 )
 [node name="Model" type="Sprite" parent="."]
 texture = ExtResource( 2 )
 hframes = 60
-frame = 31
+frame = 18
 
 [node name="Weapon" type="Sprite" parent="."]
 visible = false
@@ -705,7 +705,7 @@ tree_root = SubResource( 33 )
 anim_player = NodePath("../AnimationPlayer")
 parameters/playback = SubResource( 34 )
 parameters/Attack/blend_position = Vector2( 0, 0 )
-parameters/Idle/blend_position = Vector2( 0, 0 )
+parameters/Idle/blend_position = Vector2( -0.00463676, -0.00635839 )
 parameters/Run/blend_position = Vector2( 0, 0 )
 
 [node name="HurtBox" parent="." instance=ExtResource( 7 )]

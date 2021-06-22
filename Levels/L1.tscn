@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=15 format=2]
 
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=1]
 [ext_resource path="res://World/SandTileMap.tscn" type="PackedScene" id=2]
@@ -13,6 +13,7 @@
 [ext_resource path="res://Levels/L1.gd" type="Script" id=11]
 [ext_resource path="res://Items/Sword.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Items/Potion.tscn" type="PackedScene" id=13]
+[ext_resource path="res://NPCS/OldmanNPC.tscn" type="PackedScene" id=14]
 
 [node name="L1" type="Node2D"]
 pause_mode = 1
@@ -39,6 +40,9 @@ position = Vector2( 0, 0 )
 position = Vector2( 560, 384 )
 
 [node name="YSort" type="YSort" parent="."]
+
+[node name="NPC" parent="YSort" instance=ExtResource( 14 )]
+position = Vector2( 144, 176 )
 
 [node name="Chest" parent="YSort" instance=ExtResource( 6 )]
 position = Vector2( 185.936, 15.3622 )

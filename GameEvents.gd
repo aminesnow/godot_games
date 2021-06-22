@@ -19,3 +19,4 @@ signal ShowSlotPopup(item)
 signal HideSlotPopup
 signal PauseGame
 signal UnPauseGame
+signal QuestComplete(quest)

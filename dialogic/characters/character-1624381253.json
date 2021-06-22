@@ -1,0 +1,20 @@
+{
+	"color": "#ffffffff",
+	"description": "Old man that gives you a quest",
+	"display_name": "Old man",
+	"display_name_bool": true,
+	"id": "character-1624381253.json",
+	"mirror_portraits": false,
+	"name": "oldman1",
+	"nickname": "oldman1",
+	"nickname_bool": false,
+	"offset_x": 0,
+	"offset_y": 0,
+	"portraits": [
+		{
+			"name": "Default",
+			"path": ""
+		}
+	],
+	"scale": 100
+}

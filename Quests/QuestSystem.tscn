@@ -1,0 +1,12 @@
+[gd_scene load_steps=2 format=2]
+
+[ext_resource path="res://Quests/QuestSystem.gd" type="Script" id=1]
+
+[node name="QuestSystem" type="Node"]
+script = ExtResource( 1 )
+
+[node name="Quests" type="Node" parent="."]
+
+[node name="AvailableQuests" type="Node" parent="."]
+
+[node name="CompletedQuest" type="Node" parent="."]

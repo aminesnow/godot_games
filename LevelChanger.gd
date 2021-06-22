@@ -39,7 +39,7 @@ func start_change_level(sourceGateID, targetScene: String, delay = 0.0):
 			if gate.gateID == sourceGateID:
 				var player = levels.get_child(0).find_node("Player")
 				player.global_position = gate.playerPosition.global_position
-				player.init_player_pose(gate.playerPose)
+				player.set_player_pose(gate.playerPose)
 				break
 
 		finish_change_level(delay)

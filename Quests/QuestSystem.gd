@@ -1,5 +1,4 @@
 extends Node
-class_name QuestSystem
 
 
 onready var quests = $Quests
@@ -8,7 +7,8 @@ onready var completed = $CompletedQuest
 
 func _ready():
 	GameEvents.connect("QuestComplete", self, "on_quest_complete")
-
+	# TODO load quests from save
+	start_quest(quests.get_child(0).filename)
 
 func start_quest(quest_filename: String):
 	for quest in quests.get_children():
@@ -21,3 +21,6 @@ func start_quest(quest_filename: String):
 func on_quest_complete(quest: Quest):
 	available.remove_child(quest)
 	completed.add_child(quest)
+
+func get_available_quests():
+	return available.get_children()

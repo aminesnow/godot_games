@@ -27,6 +27,7 @@ func interact(_interactor):
 		get_tree().paused = true
 		open = true
 		animatedSprite.play("open")
+		GameEvents.emit_signal("CloseAll")
 		GameEvents.emit_signal("OpenContainer", id, items)
 		GameEvents.connect("CloseInventory", self, "interact")
 	else:

@@ -1,4 +1,4 @@
-[gd_scene load_steps=10 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://UI/inventory.png" type="Texture" id=1]
 [ext_resource path="res://UI/slot.png" type="Texture" id=2]
@@ -7,6 +7,15 @@
 [ext_resource path="res://UI/InventoryCanvas.gd" type="Script" id=5]
 [ext_resource path="res://UI/weapon_slot.png" type="Texture" id=6]
 [ext_resource path="res://UI/WeaponSlot.gd" type="Script" id=7]
+[ext_resource path="res://Fonts/Kenney Blocks.ttf" type="DynamicFontData" id=8]
+[ext_resource path="res://Fonts/Kenney Mini Square.ttf" type="DynamicFontData" id=9]
+
+[sub_resource type="DynamicFont" id=3]
+size = 30
+font_data = ExtResource( 8 )
+
+[sub_resource type="DynamicFont" id=4]
+font_data = ExtResource( 9 )
 
 [sub_resource type="StyleBoxTexture" id=1]
 texture = ExtResource( 2 )
@@ -27,6 +36,28 @@ margin_right = 248.0
 margin_bottom = 248.0
 texture = ExtResource( 1 )
 expand = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="InventoryLabel" type="Label" parent="Inventory"]
+margin_left = 23.9886
+margin_top = -36.9028
+margin_right = 229.989
+margin_bottom = 9.09718
+custom_fonts/font = SubResource( 3 )
+text = "Inventory"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="WeaponLabel" type="Label" parent="Inventory"]
+margin_left = -60.2063
+margin_top = 153.0
+margin_right = 4.7937
+margin_bottom = 177.0
+custom_fonts/font = SubResource( 4 )
+text = "Weapon"
 __meta__ = {
 "_edit_use_anchors_": false
 }

@@ -9,12 +9,11 @@
 radius = 5.0
 height = 4.0
 
-[sub_resource type="CapsuleShape2D" id=13]
+[sub_resource type="CapsuleShape2D" id=2]
 radius = 5.0
 height = 4.0
 
-[sub_resource type="Animation" id=2]
-resource_name = "IdleDown"
+[sub_resource type="Animation" id=3]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -29,8 +28,7 @@ tracks/0/keys = {
 "values": [ 21 ]
 }
 
-[sub_resource type="Animation" id=3]
-resource_name = "IdleLeft"
+[sub_resource type="Animation" id=4]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -45,8 +43,7 @@ tracks/0/keys = {
 "values": [ 12 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "IdleRight"
+[sub_resource type="Animation" id=5]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -61,7 +58,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=5]
+[sub_resource type="Animation" id=6]
 length = 0.1
 tracks/0/type = "value"
 tracks/0/path = NodePath("Sprite:frame")
@@ -76,37 +73,37 @@ tracks/0/keys = {
 "values": [ 6 ]
 }
 
-[sub_resource type="AnimationNodeAnimation" id=6]
+[sub_resource type="AnimationNodeAnimation" id=7]
 animation = "IdleDown"
 
-[sub_resource type="AnimationNodeAnimation" id=7]
+[sub_resource type="AnimationNodeAnimation" id=8]
 animation = "IdleRight"
 
-[sub_resource type="AnimationNodeAnimation" id=8]
+[sub_resource type="AnimationNodeAnimation" id=9]
 animation = "IdleUp"
 
-[sub_resource type="AnimationNodeAnimation" id=9]
+[sub_resource type="AnimationNodeAnimation" id=10]
 animation = "IdleLeft"
 
-[sub_resource type="AnimationNodeBlendSpace2D" id=10]
-blend_point_0/node = SubResource( 6 )
+[sub_resource type="AnimationNodeBlendSpace2D" id=11]
+blend_point_0/node = SubResource( 7 )
 blend_point_0/pos = Vector2( 0, 1 )
-blend_point_1/node = SubResource( 7 )
+blend_point_1/node = SubResource( 8 )
 blend_point_1/pos = Vector2( 1, 0 )
-blend_point_2/node = SubResource( 8 )
+blend_point_2/node = SubResource( 9 )
 blend_point_2/pos = Vector2( 0, -1 )
-blend_point_3/node = SubResource( 9 )
+blend_point_3/node = SubResource( 10 )
 blend_point_3/pos = Vector2( -1, 0 )
 min_space = Vector2( -1, -1.1 )
 max_space = Vector2( 1, 1.1 )
 blend_mode = 1
 
-[sub_resource type="AnimationNodeStateMachine" id=11]
-states/Idle/node = SubResource( 10 )
+[sub_resource type="AnimationNodeStateMachine" id=12]
+states/Idle/node = SubResource( 11 )
 states/Idle/position = Vector2( 299, 83 )
 start_node = "Idle"
 
-[sub_resource type="AnimationNodeStateMachinePlayback" id=12]
+[sub_resource type="AnimationNodeStateMachinePlayback" id=13]
 
 [node name="OldmanNPC" type="KinematicBody2D" groups=[
 "interactables",
@@ -114,6 +111,7 @@ start_node = "Idle"
 ]]
 position = Vector2( 0, -6 )
 script = ExtResource( 4 )
+quests_to_give = [ "open_chest", "kill_bats" ]
 
 [node name="Sprite" type="Sprite" parent="."]
 position = Vector2( 2, -5 )
@@ -139,18 +137,18 @@ id = "oldman1"
 
 [node name="CollisionShape2D" parent="Interactable" index="0"]
 position = Vector2( 9, 13 )
-shape = SubResource( 13 )
+shape = SubResource( 2 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/IdleDown = SubResource( 2 )
-anims/IdleLeft = SubResource( 3 )
-anims/IdleRight = SubResource( 4 )
-anims/IdleUp = SubResource( 5 )
+anims/IdleDown = SubResource( 3 )
+anims/IdleLeft = SubResource( 4 )
+anims/IdleRight = SubResource( 5 )
+anims/IdleUp = SubResource( 6 )
 
 [node name="AnimationTree" type="AnimationTree" parent="."]
-tree_root = SubResource( 11 )
+tree_root = SubResource( 12 )
 anim_player = NodePath("../AnimationPlayer")
-parameters/playback = SubResource( 12 )
+parameters/playback = SubResource( 13 )
 parameters/Idle/blend_position = Vector2( 0, 0 )
 
 [editable path="Interactable"]

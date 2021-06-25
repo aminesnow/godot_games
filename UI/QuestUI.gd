@@ -1,15 +1,25 @@
 extends CanvasLayer
 
+onready var vbox = $QuestJournal/Control/ScrollContainer/VBoxContainer
+
+var questUIScene = preload("res://UI/SingleQuestUI.tscn")
 
 func _ready():
 	$QuestJournal.visible = false
 	GameEvents.connect("CloseAll", self, "close")
-	refresh_quests()
+	GameEvents.connect("QuestComplete", self, "refresh_quests")
+	GameEvents.connect("QuestStarted", self, "refresh_quests")
+	refresh_quests(null)
 
-func refresh_quests():
+func refresh_quests(_quest):
+	for q in vbox.get_children():
+		vbox.remove_child(q)
+
 	for quest in QuestSystem.get_available_quests():
-		print(quest.title)
-
+		var questui = questUIScene.instance()
+		vbox.add_child(questui)
+		questui.set_title(quest.title)
+		questui.set_description(quest.description)
 
 
 func _input(event):

@@ -8,11 +8,12 @@ onready var completed = $CompletedQuest
 func _ready():
 	GameEvents.connect("QuestComplete", self, "on_quest_complete")
 	# TODO load quests from save
-	start_quest(quests.get_child(0).filename)
+	if quests.get_child_count() > 0:
+		start_quest(quests.get_child(0).filename)
 
-func start_quest(quest_filename: String):
+func start_quest(quest_id: String):
 	for quest in quests.get_children():
-		if (quest as Quest).filename == quest_filename:
+		if (quest as Quest).id == quest_id:
 			quests.remove_child(quest)
 			available.add_child(quest)
 			quest.start()

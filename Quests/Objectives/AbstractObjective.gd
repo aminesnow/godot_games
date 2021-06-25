@@ -15,6 +15,7 @@ func start():
 func complete():
 	if started:
 		completed = true
+		emit_signal("completed", self)
 
 func _process(delta):
 	if started && !completed:

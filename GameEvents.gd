@@ -19,6 +19,7 @@ signal ShowSlotPopup(item)
 signal HideSlotPopup
 signal PauseGame
 signal UnPauseGame
+signal QuestStarted(quest)
 signal QuestComplete(quest)
 signal CloseAll
 signal Talking(npc)

@@ -745,6 +745,7 @@ rotation = 3.57628e-06
 position = Vector2( 7.19638, -7.93095 )
 
 [connection signal="area_entered" from="HurtBox" to="." method="_on_HurtBox_area_entered"]
+[connection signal="area_entered" from="HitboxPivot/SwordHitBox" to="." method="_on_SwordHitBox_area_entered"]
 
 [editable path="HurtBox"]
 [editable path="HitboxPivot/SwordHitBox"]

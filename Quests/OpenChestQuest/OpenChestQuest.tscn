@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Quests/OpenChestQuest/OpenChestObjective.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Quests/OpenChestQuest/OpenChestObjective.gd" type="Script" id=2]
+[ext_resource path="res://Quests/Quest.gd" type="Script" id=3]
+
+[node name="OpenChestQuest" type="Node"]
+script = ExtResource( 3 )
+id = "open_chest"
+
+[node name="Objectives" type="Node" parent="."]
+
+[node name="OpenChestObjective" type="Node" parent="Objectives" instance=ExtResource( 1 )]
+script = ExtResource( 2 )
+target_chest = "chest1"
+
+[node name="ItemRewards" type="Node" parent="."]

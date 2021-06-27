@@ -1,0 +1,17 @@
+[gd_scene load_steps=4 format=2]
+
+[ext_resource path="res://Quests/KillBatsQuest/KillEnemies.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Quests/Quest.gd" type="Script" id=4]
+
+[node name="KillBatsQuest" type="Node"]
+script = ExtResource( 4 )
+id = "kill_bats"
+
+[node name="Objectives" type="Node" parent="."]
+
+[node name="KillEnemies" parent="Objectives" instance=ExtResource( 1 )]
+target_enemy = ExtResource( 2 )
+max_attack_count = 4
+
+[node name="ItemRewards" type="Node" parent="."]

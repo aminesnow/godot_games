@@ -26,6 +26,7 @@ onready var weapon = $Weapon
 
 var velocity = Vector2.ZERO
 var state = IDLE
+var attacking = false
 
 func _ready():
 	animationTree.active = true
@@ -63,6 +64,7 @@ func has_weapon():
 	return PlayerInventory.weapon_slot != null
 
 func attack():
+	attacking = true
 	velocity = Vector2.ZERO
 	animationState.travel("Attack")
 	
@@ -91,8 +93,6 @@ func move(delta):
 func set_player_pose(init_pose):
 	var poseVector = Commons.PoseVectors[init_pose]
 	animationTree.set("parameters/Idle/blend_position", poseVector)
-	animationTree.set("parameters/Run/blend_position", poseVector)
-	animationTree.set("parameters/Attack/blend_position", poseVector)
 
 func get_save_data():
 	var position = global_position
@@ -108,7 +108,6 @@ func load_save_data(data):
 
 func _on_HurtBox_area_entered(area):
 	stats.take_damage(area.damage, self)
-	print(get_tree().current_scene)
 	get_tree().get_root().add_child(PlayerHurtSFX.instance())
 	hurtBox.activate_invicibility()
 
@@ -120,3 +119,9 @@ func get_input_vector() -> Vector2:
 	if input_vector != Vector2.ZERO:
 		interactorPivot.rotation_degrees = fmod(rad2deg(input_vector.angle())-180, 360)
 	return input_vector
+
+
+func _on_SwordHitBox_area_entered(area):
+	if attacking:
+		attacking = false
+		GameEvents.emit_signal("AttackedEnemy", area.get_parent())

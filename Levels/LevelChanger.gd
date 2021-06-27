@@ -30,7 +30,7 @@ func start_change_level(sourceGateID, targetScene: String, delay = 0.0):
 		var next_level = next_level_resource.instance()
 		levels.add_child(next_level)
 		
-		GameEvents.emit_signal("SceneChanged")
+		GameEvents.emit_signal("LevelChanged")
 
 		# Set player position for next level
 		var levelGates = get_tree().get_nodes_in_group("LevelGates")

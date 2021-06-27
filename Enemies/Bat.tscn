@@ -62,6 +62,7 @@ max_health = 3
 [node name="AnimatedSprite" type="AnimatedSprite" parent="."]
 frames = SubResource( 6 )
 animation = "BatAnimationFly"
+frame = 1
 playing = true
 offset = Vector2( 0, -12 )
 
@@ -84,7 +85,9 @@ collision_mask = 4
 position = Vector2( -0.101818, -12.2433 )
 shape = SubResource( 9 )
 
-[node name="HurtBox" parent="." instance=ExtResource( 3 )]
+[node name="HurtBox" parent="." groups=[
+"bats",
+] instance=ExtResource( 3 )]
 collision_layer = 8
 hit_effect_offset = Vector2( 0, 8 )
 

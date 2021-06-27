@@ -6,6 +6,7 @@ func _ready():
 	GameEvents.connect("CloseInventory", self, "close")
 	GameEvents.connect("OpenContainer", self, "open")
 	GameEvents.connect("CloseContainer", self, "close")
+	GameEvents.connect("CloseAll", self, "close")
 
 
 func open(id: String, containerItems: Dictionary):

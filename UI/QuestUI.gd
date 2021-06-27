@@ -9,6 +9,7 @@ func _ready():
 	GameEvents.connect("CloseAll", self, "close")
 	GameEvents.connect("QuestComplete", self, "refresh_quests")
 	GameEvents.connect("QuestStarted", self, "refresh_quests")
+	GameEvents.connect("QuestFailed", self, "refresh_quests")
 	refresh_quests(null)
 
 func refresh_quests(_quest):

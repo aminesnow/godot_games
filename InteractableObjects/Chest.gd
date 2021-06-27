@@ -23,15 +23,18 @@ func _ready():
 	items = get_items()
 
 func interact(_interactor):
-	if !is_open():
-		get_tree().paused = true
-		open = true
-		animatedSprite.play("open")
-		GameEvents.emit_signal("CloseAll")
-		GameEvents.emit_signal("OpenContainer", id, items)
-		GameEvents.connect("CloseInventory", self, "interact")
+	if QuestSystem.is_quest_started("open_chest") || QuestSystem.is_quest_completed("open_chest"):
+		if !is_open():
+			get_tree().paused = true
+			open = true
+			animatedSprite.play("open")
+			GameEvents.emit_signal("CloseAll")
+			GameEvents.emit_signal("OpenContainer", id, items)
+			GameEvents.connect("CloseInventory", self, "interact")
+		else:
+			stop_interact()
 	else:
-		stop_interact()
+		DialogUtils.launch_dialog(self, "chest_locked")
 
 func get_items():
 	if items == null:

@@ -1,0 +1,7 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Quests/AbstractObjective.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Quests/KillBatsQuest/KillEnemies.gd" type="Script" id=2]
+
+[node name="KillEnemies" instance=ExtResource( 1 )]
+script = ExtResource( 2 )

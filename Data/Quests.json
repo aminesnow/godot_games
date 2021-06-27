@@ -1,0 +1,15 @@
+{
+	"talk_quest": {
+		"title": "Talk to the old man",
+		"description": "Go talk to the old man over there"
+	},
+	"open_chest": {
+		"title": "Open chest",
+		"description": "Open the chest that the old man told you about"
+	},
+	"kill_bats": {
+		"title": "Kill the bats",
+		"description": "Kill the bats with only 4 hits"
+	}
+	
+}

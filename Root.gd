@@ -5,6 +5,7 @@ var startLevelPath = "res://Levels/L1.tscn"
 
 func _ready():
 	change_level()
+	QuestSystem.start_quest("talk_quest")
 
 func change_level():
 	if levels.get_child_count() > 0:

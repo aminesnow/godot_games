@@ -17,7 +17,7 @@ _global_script_classes=[ {
 "base": "Node",
 "class": "AbstractObjective",
 "language": "GDScript",
-"path": "res://Quests/Objectives/AbstractObjective.gd"
+"path": "res://Quests/AbstractObjective.gd"
 }, {
 "base": "Node",
 "class": "AbstractStats",
@@ -144,6 +144,7 @@ PlayerInventory="*res://Player/PlayerInventory.gd"
 ContainersInventory="*res://InteractableObjects/ContainersInventory.gd"
 DialogicSingleton="*res://addons/dialogic/Other/DialogicSingleton.gd"
 QuestSystem="*res://Quests/QuestSystem.tscn"
+DialogUtils="*res://DialogUtils.gd"
 
 [display]
 

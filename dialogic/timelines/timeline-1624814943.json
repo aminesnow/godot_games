@@ -1,0 +1,19 @@
+{
+	"events": [
+		{
+			"character": "character-1624381253.json",
+			"event_id": "dialogic_001",
+			"portrait": "",
+			"text": "Go do the quest you lil shit!"
+		},
+		{
+			"event_id": "dialogic_022",
+			"transition_duration": 0.2
+		}
+	],
+	"metadata": {
+		"dialogic-version": "1.2",
+		"file": "timeline-1624814943.json",
+		"name": "oldman1_chat2"
+	}
+}

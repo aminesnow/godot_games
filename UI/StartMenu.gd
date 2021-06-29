@@ -1,7 +1,7 @@
 extends Control
 
 
-export(PackedScene) var startScene
+export(PackedScene) var nextScene
 
 onready var menuBtns = $MenuButtons
 onready var saveMenu = $SaveMenu
@@ -9,14 +9,13 @@ onready var saveMenu = $SaveMenu
 func _ready():
 	$AnimationPlayer.play("logo")
 	saveMenu.visible = false
-	saveMenu.startScene = startScene
 
 func show_menu():
 	menuBtns.visible = true
 	$MenuButtons/Start.grab_focus()
 
 func _on_Start_pressed():
-	get_tree().change_scene_to(startScene)
+	get_tree().change_scene_to(nextScene)
 
 
 func _on_Load_pressed():

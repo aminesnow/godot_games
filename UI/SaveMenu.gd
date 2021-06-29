@@ -14,7 +14,7 @@ const ENCRYPT_KEY = "azerty"
 
 onready var saveSlots =  $NinePatchRect/MarginContainer/SaveSlots
 
-var startScene: PackedScene
+export(PackedScene) var startScene
 
 func _ready():
 	get_saves()

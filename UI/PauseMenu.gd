@@ -39,8 +39,3 @@ func _on_Save_pressed():
 func _on_ExitSave_pressed():
 	$PauseNode.visible = true
 	$SaveNode.visible = false
-
-
-
-func save(idx):
-	pass

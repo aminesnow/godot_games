@@ -1,0 +1,42 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Music and Sounds/cursor_style_2.wav" type="AudioStream" id=1]
+[ext_resource path="res://Music and Sounds/SFX.gd" type="Script" id=2]
+[ext_resource path="res://Music and Sounds/confirm_style_1_001.wav" type="AudioStream" id=3]
+[ext_resource path="res://Music and Sounds/back_style_2_001.wav" type="AudioStream" id=4]
+[ext_resource path="res://Music and Sounds/Hurt.wav" type="AudioStream" id=5]
+[ext_resource path="res://Music and Sounds/interact.wav" type="AudioStream" id=6]
+[ext_resource path="res://Music and Sounds/FootStep.wav" type="AudioStream" id=7]
+[ext_resource path="res://Music and Sounds/Swipe.wav" type="AudioStream" id=8]
+
+[node name="SFX" type="Node2D"]
+pause_mode = 2
+script = ExtResource( 2 )
+
+[node name="BtnSelect" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 1 )
+volume_db = 2.0
+
+[node name="BtnPress" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 3 )
+volume_db = 2.0
+
+[node name="BtnBack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 4 )
+volume_db = 2.0
+
+[node name="HitTaken" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 5 )
+volume_db = 2.0
+
+[node name="Interact" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 6 )
+volume_db = 2.0
+
+[node name="PlayerAttack" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 8 )
+volume_db = 2.0
+
+[node name="FoorStep" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 7 )
+volume_db = -6.0

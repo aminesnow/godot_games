@@ -7,6 +7,9 @@ onready var menuBtns = $MenuButtons
 onready var saveMenu = $SaveMenu
 
 func _ready():
+	PlayerInventory.reset()
+	ContainersInventory.reset()
+	PlayerStats.reset()
 	$AnimationPlayer.play("logo")
 	saveMenu.visible = false
 

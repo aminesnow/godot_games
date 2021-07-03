@@ -1,4 +1,4 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=1]
 [ext_resource path="res://World/SandTileMap.tscn" type="PackedScene" id=2]
@@ -14,10 +14,12 @@
 [ext_resource path="res://Items/Sword.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Items/Potion.tscn" type="PackedScene" id=13]
 [ext_resource path="res://NPCS/OldmanNPC.tscn" type="PackedScene" id=14]
+[ext_resource path="res://Outro.tscn" type="PackedScene" id=15]
 
 [node name="L1" type="Node2D"]
 pause_mode = 1
 script = ExtResource( 11 )
+endGameScene = ExtResource( 15 )
 
 [node name="GrassBG" type="Sprite" parent="."]
 position = Vector2( 280, 192 )

@@ -21,7 +21,6 @@ onready var animationState = animationTree.get("parameters/playback")
 onready var weaponHB = $HitboxPivot/SwordHitBox
 onready var hurtBox = $HurtBox
 onready var interactorPivot = $InteractorPivot
-onready var PlayerHurtSFX = preload("res://Effects/PlayerHurtSFX.tscn")
 onready var weapon = $Weapon
 
 var velocity = Vector2.ZERO
@@ -30,6 +29,7 @@ var attacking = false
 
 func _ready():
 	animationTree.active = true
+	weapon.visible = false
 	weaponHB.knockBackVector = Vector2.LEFT
 	GameEvents.connect("OutOfHealth", self, "player_dead")
 	GameEvents.connect("WeaponEquiped", self, "equipe_weapon")
@@ -67,7 +67,14 @@ func attack():
 	attacking = true
 	velocity = Vector2.ZERO
 	animationState.travel("Attack")
+
+func attack_sfx():
+	Sfx.play(Sfx.SFX_ID.PlayerAttack)
+
+func step_sfx():
+	Sfx.play(Sfx.SFX_ID.FoorStep)
 	
+
 func attack_finished():
 	state = MOVE
 
@@ -108,7 +115,7 @@ func load_save_data(data):
 
 func _on_HurtBox_area_entered(area):
 	stats.take_damage(area.damage, self)
-	get_tree().get_root().add_child(PlayerHurtSFX.instance())
+	Sfx.play(Sfx.SFX_ID.HitTaken)
 	hurtBox.activate_invicibility()
 
 func get_input_vector() -> Vector2:

@@ -145,6 +145,7 @@ ContainersInventory="*res://InteractableObjects/ContainersInventory.gd"
 DialogicSingleton="*res://addons/dialogic/Other/DialogicSingleton.gd"
 QuestSystem="*res://Quests/QuestSystem.tscn"
 DialogUtils="*res://DialogUtils.gd"
+Sfx="*res://Music and Sounds/SFX.tscn"
 
 [display]
 

@@ -67,18 +67,6 @@ margin_top = 63.8
 margin_right = -0.488037
 margin_bottom = -63.8
 custom_fonts/font = SubResource( 1 )
-text = "Welcome to the Shitty Game. You won't enjoy yourself one bit, but that's okay, you don't have anything else to do you loser!
-Here are the controls:
-
-- Move with ZQSD
-- Attack with SPACE
-- Interact with E
-- Open inventory with I
-- Open Quest journal with J
-
-Press ENTER when you are ready.
-....
-I hope you lose."
 autowrap = true
 __meta__ = {
 "_edit_use_anchors_": false

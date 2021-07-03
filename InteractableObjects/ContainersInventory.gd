@@ -3,6 +3,12 @@ extends Node
 
 var containers_slot = {}
 
+func reset():
+	for key in containers_slot:
+		if containers_slot[key] != null && is_instance_valid(containers_slot[key]):
+			containers_slot[key].queue_free()
+	 containers_slot = {}
+
 func get_save_data():
 	var inv = {}
 	for container_key in containers_slot:

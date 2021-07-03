@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://UI/QuestUI.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Levels/LevelChanger.tscn" type="PackedScene" id=2]
@@ -12,10 +12,12 @@
 [ext_resource path="res://UI/StartMenuTheme.tres" type="Theme" id=10]
 [ext_resource path="res://UI/UiController.gd" type="Script" id=11]
 [ext_resource path="res://UI/PauseMenu.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Outro.tscn" type="PackedScene" id=13]
 
 [node name="Root" type="Node2D"]
 pause_mode = 2
 script = ExtResource( 9 )
+endGameScene = ExtResource( 13 )
 
 [node name="Levels" type="Node2D" parent="." groups=[
 "levels",

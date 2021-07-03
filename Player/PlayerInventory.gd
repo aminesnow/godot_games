@@ -5,6 +5,15 @@ var open = false
 var slots = {}
 var weapon_slot: WeaponItem
 
+func reset():
+	for key in slots:
+		if slots[key] != null && is_instance_valid(slots[key]):
+			slots[key].queue_free()
+	slots = {}
+	if weapon_slot:
+		weapon_slot.queue_free()
+	weapon_slot = null
+	
 func load_save_data(data):
 	var weapon_scene: String = data["player_inventory"]["weapon"]
 	weapon_slot = load(weapon_scene).instance()

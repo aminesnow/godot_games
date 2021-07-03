@@ -1,5 +1,8 @@
 extends AbstractStats
 
+func reset():
+	set_max_health(5)
+
 func _ready():
 	set_max_health(5)
 

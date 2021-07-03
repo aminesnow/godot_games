@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=11 format=2]
 
 [ext_resource path="res://UI/StartMenu.gd" type="Script" id=1]
 [ext_resource path="res://UI/SaveMenu.tscn" type="PackedScene" id=2]
@@ -7,6 +7,8 @@
 [ext_resource path="res://UI/bg.png" type="Texture" id=5]
 [ext_resource path="res://Intro.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Root.tscn" type="PackedScene" id=7]
+[ext_resource path="res://UI/MenuBtn.gd" type="Script" id=8]
+[ext_resource path="res://Music and Sounds/Music.mp3" type="AudioStream" id=9]
 
 [sub_resource type="Animation" id=1]
 resource_name = "logo"
@@ -78,22 +80,29 @@ __meta__ = {
 margin_right = 178.0
 margin_bottom = 24.0
 text = "New Game"
+script = ExtResource( 8 )
 
 [node name="Load" type="Button" parent="MenuButtons"]
 margin_top = 28.0
 margin_right = 178.0
 margin_bottom = 52.0
 text = "Load Save"
+script = ExtResource( 8 )
 
 [node name="Quit" type="Button" parent="MenuButtons"]
 margin_top = 56.0
 margin_right = 178.0
 margin_bottom = 80.0
 text = "Quit"
+script = ExtResource( 8 )
 
 [node name="SaveMenu" parent="." instance=ExtResource( 2 )]
 type = 1
 startScene = ExtResource( 7 )
+
+[node name="AudioStreamPlayer2D" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource( 9 )
+autoplay = true
 
 [connection signal="pressed" from="MenuButtons/Start" to="." method="_on_Start_pressed"]
 [connection signal="pressed" from="MenuButtons/Load" to="." method="_on_Load_pressed"]

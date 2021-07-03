@@ -14,7 +14,6 @@ func _ready():
 	animationTree.active = true
 
 func interact(interactor):
-	var dial
 	if !quest_given:
 		DialogUtils.launch_dialog(self, convo)
 		for quest in quests_to_give:
@@ -22,7 +21,7 @@ func interact(interactor):
 			quest_given = true
 	else:
 		DialogUtils.launch_dialog(self, convo2)
-
+	
 	var pose = Commons.position_to_pose(interactor.position - self.position)
 	var poseVector = Commons.PoseVectors[pose]
 	animationTree.set("parameters/Idle/blend_position", poseVector)

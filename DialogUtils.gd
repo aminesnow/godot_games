@@ -2,6 +2,7 @@ extends Node
 
 
 func launch_dialog(parent: Node2D, timeline: String):
+	Sfx.play(Sfx.SFX_ID.Interact)
 	var dial = Dialogic.start(timeline, false)
 	dial.set_pause_mode(Node.PAUSE_MODE_PROCESS)
 	parent.add_child(dial)

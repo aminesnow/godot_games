@@ -22,11 +22,14 @@ func on_level_changed():
 func killed(enemy: Node2D):
 	if enemy.filename == target_enemy.resource_path:
 		kill_count += 1
+		print("kill_coun: ", kill_count)
+		print("bat_count: ", bat_count)
 
 func check_attack(enemy: Node2D):
 	if started && !completed && enemy.filename == target_enemy.resource_path:
 		attack_count += 1
-
+		print("attack_count: ", attack_count)
+		print("max_attack_count: ", max_attack_count)
 
 func check_completed():
 	if !completed && !failed:

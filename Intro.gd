@@ -8,6 +8,7 @@ var readDone = false
 var start = false
 
 func _ready():
+	$Label.text = JsonData.texts_data["intro"]
 	$Label.percent_visible = 0
 	animPlayer.play("Animate")
 

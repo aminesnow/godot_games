@@ -1,0 +1,21 @@
+[remap]
+
+importer="wav"
+type="AudioStreamSample"
+path="res://.import/confirm_style_1_001.wav-a95ecbeb535a5bea37d9d12158f1b6c0.sample"
+
+[deps]
+
+source_file="res://Music and Sounds/confirm_style_1_001.wav"
+dest_files=[ "res://.import/confirm_style_1_001.wav-a95ecbeb535a5bea37d9d12158f1b6c0.sample" ]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop=false
+compress/mode=0

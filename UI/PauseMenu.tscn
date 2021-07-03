@@ -1,9 +1,11 @@
-[gd_scene load_steps=5 format=2]
+[gd_scene load_steps=7 format=2]
 
 [ext_resource path="res://UI/PauseMenu.gd" type="Script" id=1]
 [ext_resource path="res://UI/bg.png" type="Texture" id=2]
 [ext_resource path="res://UI/StartMenuTheme.tres" type="Theme" id=3]
 [ext_resource path="res://UI/SaveMenu.tscn" type="PackedScene" id=4]
+[ext_resource path="res://UI/MenuBtn.gd" type="Script" id=5]
+[ext_resource path="res://UI/ExitBtn.gd" type="Script" id=6]
 
 [node name="PauseMenu" type="CanvasLayer"]
 script = ExtResource( 1 )
@@ -57,20 +59,26 @@ __meta__ = {
 margin_right = 200.0
 margin_bottom = 24.0
 text = "Continue"
+script = ExtResource( 5 )
 
 [node name="Save" type="Button" parent="PauseNode/MarginContainer/VBoxContainer"]
 margin_top = 34.0
 margin_right = 200.0
 margin_bottom = 58.0
 text = "Save"
+script = ExtResource( 5 )
 
 [node name="Exit" type="Button" parent="PauseNode/MarginContainer/VBoxContainer"]
 margin_top = 68.0
 margin_right = 200.0
 margin_bottom = 92.0
 text = "Exit "
+script = ExtResource( 5 )
 
 [node name="SaveNode" parent="." instance=ExtResource( 4 )]
+
+[node name="ExitSave" parent="SaveNode" index="2"]
+script = ExtResource( 6 )
 
 [connection signal="pressed" from="PauseNode/MarginContainer/VBoxContainer/Continue" to="." method="_on_Continue_pressed"]
 [connection signal="pressed" from="PauseNode/MarginContainer/VBoxContainer/Save" to="." method="_on_Save_pressed"]

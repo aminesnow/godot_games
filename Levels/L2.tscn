@@ -1,10 +1,11 @@
-[gd_scene load_steps=15 format=2]
+[gd_scene load_steps=16 format=2]
 
 [ext_resource path="res://World/GrassBackground.png" type="Texture" id=1]
 [ext_resource path="res://World/DirtTileset.png" type="Texture" id=2]
 [ext_resource path="res://World/Tree.tscn" type="PackedScene" id=3]
 [ext_resource path="res://Enemies/Bat.tscn" type="PackedScene" id=4]
 [ext_resource path="res://CustomCamera.tscn" type="PackedScene" id=5]
+[ext_resource path="res://Outro.tscn" type="PackedScene" id=6]
 [ext_resource path="res://World/FlatGrassTileMap.tscn" type="PackedScene" id=7]
 [ext_resource path="res://World/Stairs.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Player/Player.tscn" type="PackedScene" id=9]
@@ -42,6 +43,7 @@
 [node name="L2" type="Node2D"]
 position = Vector2( 63, 63 )
 script = ExtResource( 13 )
+endGameScene = ExtResource( 6 )
 
 [node name="GrassBG" type="Sprite" parent="."]
 position = Vector2( 217, 129 )

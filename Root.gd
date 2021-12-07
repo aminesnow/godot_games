@@ -8,8 +8,8 @@ export(PackedScene) var endGameScene
 func _ready():
 	change_level()
 	QuestSystem.start_quest("talk_quest")
-	GameEvents.connect("QuestComplete", self, "game_over", [true])
-	GameEvents.connect("QuestFailed", self, "game_over", [false])
+	GameEvents.connect("QuestComplete", self, "check_game_over", [true])
+	GameEvents.connect("QuestFailed", self, "check_game_over", [false])
 	GameEvents.connect("PlayerDead", self, "player_dead")
 
 func change_level():
@@ -22,7 +22,7 @@ func change_level():
 	var level = load(startLevelPath).instance()
 	levels.add_child(level)
 
-func game_over(quest: Quest, won: bool):
+func check_game_over(quest: Quest, won: bool):
 	if quest.id == "kill_bats":
 		to_outro(won)
 

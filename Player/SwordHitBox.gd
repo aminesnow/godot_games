@@ -1,4 +1,4 @@
-extends "res://HitBox.gd"
+extends HitBox
 
 
 var knockBackVector = Vector2.ZERO

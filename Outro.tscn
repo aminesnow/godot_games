@@ -3,12 +3,11 @@
 [ext_resource path="res://Outro.gd" type="Script" id=1]
 [ext_resource path="res://Fonts/Kenney Mini Square.ttf" type="DynamicFontData" id=2]
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=1]
 size = 32
 font_data = ExtResource( 2 )
 
-[sub_resource type="Animation" id=1]
-resource_name = "Animate"
+[sub_resource type="Animation" id=2]
 length = 8.0
 tracks/0/type = "value"
 tracks/0/path = NodePath("Label:percent_visible")
@@ -30,7 +29,7 @@ script = ExtResource( 1 )
 __meta__ = {
 "_edit_use_anchors_": false
 }
-nextScenePath = "res://UI/StartMenu.tscn"
+nextScenePath = "res://UI/Menus/StartMenu.tscn"
 
 [node name="ColorRect" type="ColorRect" parent="."]
 anchor_right = 1.0
@@ -46,7 +45,7 @@ margin_left = -0.488007
 margin_top = 0.199997
 margin_right = -0.488037
 margin_bottom = 0.199982
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 1 )
 text = "test"
 valign = 1
 autowrap = true
@@ -55,4 +54,4 @@ __meta__ = {
 }
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-anims/Animate = SubResource( 1 )
+anims/Animate = SubResource( 2 )

@@ -5,3 +5,4 @@
 
 [node name="TalkObjective" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+id = "talk"

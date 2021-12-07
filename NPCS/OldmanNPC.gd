@@ -6,7 +6,6 @@ onready var animationTree = $AnimationTree
 
 var convo = "oldman1_chat1"
 var convo2 = "oldman1_chat2"
-var quest_given = false
 
 export(Array) var quests_to_give
 
@@ -14,11 +13,10 @@ func _ready():
 	animationTree.active = true
 
 func interact(interactor):
-	if !quest_given:
+	if !QuestSystem.is_quest_started(quests_to_give[1]): #kill_bats
 		DialogUtils.launch_dialog(self, convo)
 		for quest in quests_to_give:
 			QuestSystem.start_quest(quest)
-			quest_given = true
 	else:
 		DialogUtils.launch_dialog(self, convo2)
 	

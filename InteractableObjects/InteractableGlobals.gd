@@ -3,7 +3,7 @@ extends Node
 
 var interactables_states = {}
 
-func load_from_save():
+func load_save_data():
 	#TODO
 	pass
 

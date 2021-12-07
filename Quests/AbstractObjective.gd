@@ -5,10 +5,28 @@ extends Node
 signal completed(obj)
 signal failed(obj)
 
+export(String) var id
+
 var started: bool = false
 var completed: bool = false
 var failed: bool = false
 
+func get_save_data():
+	return {
+		"started": started,
+		"completed": completed,
+		"failed": failed,
+	}
+
+func load_save_data(data):
+	started = data["started"]
+	completed = data["completed"]
+	failed = data["failed"]
+
+func reset():
+	started = false
+	completed = false
+	failed = false
 
 func start():
 	if !completed:

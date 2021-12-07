@@ -34,10 +34,10 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Items/ConsumableItem.gd"
 }, {
-"base": "Slot",
+"base": "Reference",
 "class": "ContainerSlot",
 "language": "GDScript",
-"path": "res://UI/ContainerSlot.gd"
+"path": "res://UI/Containers/ContainerSlot.gd"
 }, {
 "base": "Node",
 "class": "Dialogic",
@@ -65,6 +65,11 @@ _global_script_classes=[ {
 "path": "res://addons/dialogic/Other/DialogicUtil.gd"
 }, {
 "base": "Area2D",
+"class": "HitBox",
+"language": "GDScript",
+"path": "res://CollisionBoxes/HitBox.gd"
+}, {
+"base": "Area2D",
 "class": "Interactable",
 "language": "GDScript",
 "path": "res://InteractableObjects/Interactable.gd"
@@ -89,15 +94,15 @@ _global_script_classes=[ {
 "language": "GDScript",
 "path": "res://Quests/Quest.gd"
 }, {
-"base": "Panel",
+"base": "Reference",
 "class": "Slot",
 "language": "GDScript",
-"path": "res://UI/Slot.gd"
+"path": "res://UI/Containers/Slot.gd"
 }, {
 "base": "CanvasLayer",
 "class": "UI",
 "language": "GDScript",
-"path": "res://UI/UI.gd"
+"path": "res://UI/Containers/UI.gd"
 }, {
 "base": "Item",
 "class": "WeaponItem",
@@ -116,6 +121,7 @@ _global_script_class_icons={
 "DialogicDefinitionsUtil": "",
 "DialogicResources": "",
 "DialogicUtil": "",
+"HitBox": "",
 "Interactable": "",
 "Item": "",
 "LevelGate": "",
@@ -129,22 +135,22 @@ _global_script_class_icons={
 [application]
 
 config/name="mvp"
-run/main_scene="res://UI/StartMenu.tscn"
+run/main_scene="res://UI/Menus/StartMenu.tscn"
 config/use_custom_user_dir=true
 config/icon="res://icon.png"
 
 [autoload]
 
-Commons="*res://Commons.gd"
+Commons="*res://Commons/Commons.gd"
 InteractableGlobals="*res://InteractableObjects/InteractableGlobals.gd"
-GameEvents="*res://GameEvents.gd"
+GameEvents="*res://Commons/GameEvents.gd"
 JsonData="*res://JsonData.gd"
 PlayerStats="*res://Player/PlayerStats.gd"
 PlayerInventory="*res://Player/PlayerInventory.gd"
 ContainersInventory="*res://InteractableObjects/ContainersInventory.gd"
 DialogicSingleton="*res://addons/dialogic/Other/DialogicSingleton.gd"
 QuestSystem="*res://Quests/QuestSystem.tscn"
-DialogUtils="*res://DialogUtils.gd"
+DialogUtils="*res://Commons/DialogUtils.gd"
 Sfx="*res://Music and Sounds/SFX.tscn"
 
 [display]

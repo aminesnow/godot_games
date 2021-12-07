@@ -10,9 +10,9 @@ enum {
 export var ACCELERATION = 300
 export var MAX_SPEED = 70
 export var FRICTION = 200
+export(PackedScene) var DeathEffect
 
 const BAT_KB = 120
-const DeathEffect = preload("res://Effects/EnemyDeathEffect.tscn")
 var TIMER_DURATION = rand_range(1, 3)
 
 var knockback = Vector2.ZERO

@@ -28,10 +28,9 @@ func get_save_data():
 
 
 func load_save_data(data):
-	var cont_save_slots = data["containers_slots"]
-	for container_key in cont_save_slots:
+	for container_key in data:
 		containers_slot[container_key] = {}
-		var container_slots = cont_save_slots[container_key]
+		var container_slots = data[container_key]
 		for slot_key in container_slots:
 			if container_slots[slot_key].item != null:
 				var item = load(container_slots[slot_key].item).instance()

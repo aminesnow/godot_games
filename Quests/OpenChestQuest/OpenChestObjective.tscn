@@ -5,4 +5,5 @@
 
 [node name="OpenChestObjective" instance=ExtResource( 1 )]
 script = ExtResource( 2 )
+id = "open_chest1"
 target_chest = "chest1"

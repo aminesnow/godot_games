@@ -10,14 +10,16 @@ func reset():
 		if slots[key] != null && is_instance_valid(slots[key]):
 			slots[key].queue_free()
 	slots = {}
-	if weapon_slot:
+	if weapon_slot != null && is_instance_valid(weapon_slot):
 		weapon_slot.queue_free()
 	weapon_slot = null
 	
 func load_save_data(data):
-	var weapon_scene: String = data["player_inventory"]["weapon"]
-	weapon_slot = load(weapon_scene).instance()
-	var inv_save_slots = data["player_inventory"]["slots"]
+	if data["weapon"] != null:
+		var weapon_scene: String = data["weapon"]
+		weapon_slot = load(weapon_scene).instance()
+
+	var inv_save_slots = data["slots"]
 	for slot_key in inv_save_slots:
 		if inv_save_slots[slot_key].item != null:
 			var item = load(inv_save_slots[slot_key].item).instance()

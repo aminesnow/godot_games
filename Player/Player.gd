@@ -12,8 +12,6 @@ enum {
 	ATTACK
 }
 
-
-
 onready var stats = PlayerStats
 onready var animationPlayer = $AnimationPlayer
 onready var animationTree = $AnimationTree
